@@ -1,0 +1,4 @@
+#force SSL on entire site
+RewriteEngine On 
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://mysite.com/$1 [R=301,L]
