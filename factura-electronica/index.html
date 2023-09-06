@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grupo Corasa - Factura Electrónica">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- fav icon -->
+  <link rel="icon" href="../assets/images/fav-icon/fav-icon.ico">
+
+  <!-- bootstarp -->
+  <link rel="stylesheet" href="../css/vendors/bootstrap.min.css">
+
+  <!-- animate.css file -->
+  <link rel="stylesheet" href="../css/vendors/animate.css">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="../css/vendors/swiper-bundle.min.css">
+
+  <!-- flaticon -->
+  <link rel="stylesheet" href="../css/vendors/flaticon/flaticon.css">
+
+  <!-- fontAwesome -->
+  <link rel="stylesheet" href="../css/vendors/all.min.css">
+
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="../css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
+
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="../css/vendors/jquery.fancybox.min.css">
+
+  <!-- fonts site preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- fonts site preconnect -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Font Family -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+
+  <!-- main-LTR -->
+  <link rel="stylesheet" href="../css/main-LTR.css">
+  <title>Facturación Electrónica</title>
+</head>
+
+<body class=" dark-theme  landing-page-demo ">
+  <!--Start Page Header-->
+  <header class=" page-header   content-always-light header-basic" id="page-header">
+    <div class="header-search-box">
+      <div class="close-search"></div>
+      <form class="nav-search search-form" role="search" method="get" action="#">
+        <div class="search-wrapper">
+          <label class="search-lbl">Search for:</label>
+          <input class="search-input" type="search" placeholder="Search..." name="searchInput" autofocus="autofocus" />
+          <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <!--Start navbar-->
+      <nav class="menu-navbar" id="main-nav">
+        <div class="header-logo"><a class="logo-link" href="#"><img class="logo-img light-logo" loading="lazy"
+              src="../assets/images/logo/logo-light.png" alt="logo" /><img class="logo-img  dark-logo" loading="lazy"
+              src="../assets/images/logo/logo-dark.png" alt="logo" /></a></div>
+        <div class="links menu-wrapper ">
+          <ul class="list-js links-list">
+            <li class="nav-item menu-item"><a class="nav-link menu-link   active" href="#page-hero">Inicio</a></li>
+            <li class="nav-item menu-item"><a class="nav-link menu-link  " href="#services">Servicios </a></li>
+            <li class="nav-item menu-item"><a class="nav-link menu-link  " href="#about">Acerca De </a></li>
+            <li class="nav-item menu-item"><a class="nav-link menu-link  " href="#pricing">Precio </a></li>
+            <li class="nav-item menu-item"><a class="nav-link menu-link  " href="#faq">FAQ </a></li>
+          </ul>
+        </div>
+        <div class="controls-box">
+          <!--Menu Toggler button-->
+          <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+        </div>
+      </nav>
+    </div>
+    <!--End navbar-->
+  </header>
+  <!--End Page Header-->
+  <!-- Start  Page hero-->
+  <section class="page-hero hero-swiper-slider fade-effect  d-flex align-items-center" id="page-hero">
+    <div class="particles-js  dots" id="particles-js"></div>
+    <!--Start  Swiper JS slider-->
+    <div class="slider swiper-container">
+      <div class="swiper-wrapper ">
+        <!--first slider-->
+        <div class="swiper-slide">
+          <div class="slide-bg-img" data-bg-img="../assets/images/hero/hero-bg-1.jpg">
+            <div class="overlay-color " data-bg-opacity=".35"></div>
+          </div>
+          <div class="container">
+            <div class="hero-text-area  content-always-light   ">
+              <div class="row ">
+                <div class="col-12 col-md-8  col-lg-7   ">
+                  <h1 class="slide-title  ">Primeros distribuidores de factura electrónica en <span
+                      class="featured-text">Sonora <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                        preserveAspectRatio="none">
+                        <path d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                      </svg> </span><span class="design-element rounded-shape stripes"> </span></h1>
+                </div>
+                <div class="col-10 col-md-8  col-lg-6   ">
+                  <p class="slide-subtitle ">
+                    Grupo CORASA es la primera distribuidora de los servicios de facturación electrónica en todo el
+                    Estado de Sonora, por esta razón contamos con una amplia experiencia y conocimiento que lo
+                    ponemos a su servicio para encontrar el mejor esquema de facturación electrónica al más bajo
+                    costo del mercado
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--second slider-->
+        <div class="swiper-slide">
+          <div class="slide-bg-img" data-bg-img="../assets/images/hero/hero-bg-2.jpg">
+            <div class="overlay-color" data-bg-opacity=".35"></div>
+          </div>
+          <div class="container">
+            <div class="hero-text-area  content-always-light   ">
+              <div class="row">
+                <div class="col-12  col-md-8 col-lg-7   ">
+                  <h1 class="slide-title  ">Factura desde cualquier lugar con nuestra <span class="featured-text">
+                      plataforma web
+                    </span><span class="design-element rounded-shape stripes"></span></h1>
+                </div>
+                <div class="col-10 col-md-8  col-lg-6   ">
+                  <p class="slide-subtitle ">
+                    El sistema está en una plataforma web, por lo que podras facturar, consultar, cancelar o realizar
+                    cualquier acción desde cualquier dispositivo con acceso a internet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--third slider-->
+        <div class="swiper-slide">
+          <div class="slide-bg-img" data-bg-img="../assets/images/hero/hero-bg-3.jpg">
+            <div class="overlay-color" data-bg-opacity=".35"></div>
+          </div>
+          <div class="container">
+            <div class="hero-text-area  content-always-light   ">
+              <div class="row">
+                <div class="col-12  col-md-8  col-lg-7  ">
+                  <h1 class="slide-title  ">¿El sistema con el que cuentan actualmente ofrece facturación a un alto
+                    costo? <span class="featured-text"> ¡Te hacemos una mejor oferta!
+                    </span><span class="design-element rounded-shape stripes"></span></h1>
+                </div>
+                <div class="col-10 col-md-8  col-lg-6   ">
+                  <p class="slide-subtitle ">
+                    Actualmente manejamos un sistema que se encarga de conectar su sistema administrativo, con nuestro
+                    portal de facturación<br>
+                    El desarrollo podemos realizarlo nosotros, o bien, si cuentas con un equipo de desarrollo, podemos
+                    asesorarlos para que ustedes mismos lo realicen
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slides-state h-align  ">
+        <div class="slide-num curent-slide  "></div>
+        <!--Add Pagination-->
+        <div class="swiper-pagination"></div>
+        <div class="slide-num slides-count  "></div>
+      </div>
+      <!--Add Arrows -->
+      <div class="slider-stacked-arrows">
+        <div class="swiper-button-prev   ">
+          <div class="left-arrow"><i class="bi bi-chevron-left icon "></i>
+          </div>
+        </div>
+        <div class="swiper-button-next  ">
+          <div class="right-arrow"><i class="bi bi-chevron-right icon "></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End  Page hero-->
+  <!-- Start  services Section-->
+  <section class="services services-boxed mega-section  " id="services">
+    <div class="container">
+      <div class="sec-heading  ">
+        <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">Servicios</span>
+          <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Servicios</span> adicionales
+          </h2>
+          <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Debido al cambio tan brusco que representó la factura
+            electrónica en sus inicios, nos expandimos en ciertas areas para poder brindar un apoyo completo a nuestros
+            clientes</p>
+        </div>
+      </div>
+      <div class="row gx-4 gy-4 services-row ">
+        <div class="col-12 col-md-6  col-lg-4 mx-auto ">
+          <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
+            <div class="service-icon"><i class="flaticon-artificial-intelligence font-icon"></i></div><span
+              class="service-num hollow-text">1 </span>
+            <div class="service-content">
+              <h3 class="service-title">Facturación Electrónica</h3>
+              <p class="service-text">
+                El servicio de factura electrónica, es en base a paquete de folios, por lo que no hay un costo fijo, ni
+                estamos obligados a cierta cuota.<br>
+                Todo el soporte y asesoría requerido referente a factura electrónica, está incluida sin cuotas
+                adicionales
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6  col-lg-4 mx-auto ">
+          <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
+            <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span
+              class="service-num hollow-text">1 </span>
+            <div class="service-content">
+              <h3 class="service-title">Conexión Remota</h3>
+              <p class="service-text">
+                Conectamos su sistema actual con el API del proveedor de factura electrónica, para que la emisión sea de
+                manera automática y totalmente transparente para sus procesos
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+          <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
+            <div class="service-icon"><i class="flaticon-shopping-cart font-icon"></i></div><span
+              class="service-num hollow-text">3 </span>
+            <div class="service-content">
+              <h3 class="service-title">Equipos y Licencias </h3>
+              <p class="service-text">
+                Tambien somos proveedores de equipos de computo, licencias de software, y consumibles de impresión<br>
+                Computadoras armadas, All-In-One, Laptops, Impresoras, Monitores, Tablets, etc...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+          <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
+            <div class="service-icon"><i class="flaticon-profile font-icon"></i></div><span
+              class="service-num hollow-text">4 </span>
+            <div class="service-content">
+              <h3 class="service-title">Desarrollo de Aplicaciones</h3>
+              <p class="service-text">
+                Si requiere un sistema hecho a la medida, podemos ofrecerle el desarrollo de aplicaciones en cualquier
+                plataforma, asi como el mantenimiento, soporte y expansión del mismo
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+          <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
+            <div class="service-icon"><i class="flaticon-connection font-icon"></i></div><span
+              class="service-num hollow-text">5 </span>
+            <div class="service-content">
+              <h3 class="service-title">Redes empresariales</h3>
+              <p class="service-text">
+                Ofrecemos el servicio para montarles una red local dentro de su hogar o negocio. Así mismo, la
+                configuración de seguridad y compartición para los archivos y usuarios.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+          <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".6s">
+            <div class="service-icon"><i class="flaticon-update font-icon"></i></div><span
+              class="service-num hollow-text">6 </span>
+            <div class="service-content">
+              <h3 class="service-title">Mantenimiento General</h3>
+              <p class="service-text">
+                Si su equipo de computo presenta fallas, nosotros podemos ayudarle a solucionarlas, asi como dar un
+                mantenimiento general y reemplazo de piezas para mejorar el rendimiento del mismo
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End  services Section-->
+  <!-- Start  about Section-->
+  <section class="about mega-section" id="about">
+    <div class="container">
+      <!-- Start first about div-->
+      <div class="content-block  ">
+        <div class="row">
+          <div class="col-12 col-lg-6 d-flex align-items-center order-1 order-lg-0 about-col pad-end  wow fadeInUp "
+            data-wow-delay="0.6s">
+            <div class="text-area ">
+              <div class="sec-heading  light-title ">
+                <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">Acerca de
+                    nosotros</span>
+                  <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Brindando el mejor servicio de facturación
+                    electrónica desde <span class='featured-text'> 2009. <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 500 150" preserveAspectRatio="none">
+                        <path d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                      </svg></span></h2>
+                </div>
+              </div>
+              <p class=" about-text">
+                Con más de 10 años de experiencia, hemos visto el crecimiento de la factura electrónica en México, así
+                como vivido todos los cambios que el SAT ha realizado durante todos estos años, por lo que podemos
+                brindarle un servicio de calidad, y asesoría en todo lo referente a la facturación electrónica
+              </p>
+              <div class="info-items-list ">
+                <div class="row ">
+                  <div class="col-9 col-xl-6">
+                    <div class="info-item"><i class="flaticon-medal  info-icon"></i>
+                      <div class="info-content">
+                        <h5 class="info-title">Mejor calidad </h5>
+                        <p class="info-text">Nuestra prioridad siempre ha sido y será la calidad de nuestro servicio y
+                          la satisfacción de nuestros clientes. Siempre buscaremos la manera de apoyarlo ante cualquier
+                          situación que se presente
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-9 col-xl-6">
+                    <div class="info-item"><i class="flaticon-game-console info-icon"></i>
+                      <div class="info-content">
+                        <h5 class="info-title">Fácil de Usar </h5>
+                        <p class="info-text">La plataforma está pensada para ser una herramienta potente para la
+                          emisión de facturas, pero a la vez, fácil de usar para cualquier persona, sin importar su
+                          nivel de conocimiento en computación
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-9 col-xl-6">
+                    <div class="info-item"><i class="flaticon-map info-icon"></i>
+                      <div class="info-content">
+                        <h5 class="info-title">Desde cualquier lugar </h5>
+                        <p class="info-text">No este atado a un equipo de computo, o a un lugar en especifico, ya que
+                          la plataforma está en la nube, por lo que podrá acceder desde cualquier dispositivo con
+                          acceso a internet
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-9 col-xl-6">
+                    <div class="info-item"><i class="flaticon-technical-support-1  info-icon"></i>
+                      <div class="info-content">
+                        <h5 class="info-title">Soporte Técnico </h5>
+                        <p class="info-text">Nosotros contamos con una oficina, por lo que si
+                          requiere de soporte o asistencia, puede llamarnos para resolver cualquier duda o problema que
+                          esté presentando
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 d-flex align-items-center order-0 order-lg-1 about-col  wow fadeInUp"
+            data-wow-delay="0.2s">
+            <div class="img-area  " data-tilt>
+              <div class="image   "><img class="about-img img-fluid " loading="lazy"
+                  src="../assets/images/about/photo-1.png" alt="Our vision"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End first about div-->
+      <!-- Start first about div-->
+      <div class="content-block  ">
+        <div class="row">
+          <div class="col-12 col-lg-6 d-flex align-items-center about-col  wow fadeInUp" data-wow-delay="0.2s">
+            <div class="img-area  ">
+              <div class="image  " data-tilt><img class="about-img img-fluid " loading="lazy"
+                  src="../assets/images/about/photo-2.png" alt="about"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 d-flex align-items-center about-col pad-start  wow fadeInUp "
+            data-wow-delay="0.6s">
+            <div class="text-area ">
+              <div class="sec-heading  light-title ">
+                <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">why choose
+                    us</span>
+                  <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">¿Porqué nuestros <span class='hollow-text'>
+                      clientes</span> deciden <span class='featured-text'>facturar <svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                        <path d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                      </svg></span> con nosotros?</h2>
+                </div>
+              </div>
+              <p class=" about-text">
+                Antes de comenzar a ofrecer el servicio de factura electrónica, nos dimos cuenta que la atención al
+                cliente de otros distribuidores en méxico dejaba mucho que desear, debido a esto nos hemos enfocado
+                siempre en solucionar el problema del contribuyente como priodidad, y no solo en venderle un servicio
+              </p>
+
+              <div class="info-items-list">
+                <div class="row ">
+                  <div class="col-12 ">
+                    <div class="info-item"><span class="info-number ">01.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">tecnología de punta </h5>
+                        <p class="info-text">La plataforma utilizada cuenta la última tecnología para poder ofrecer el
+                          mejor servicio posible</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 ">
+                    <div class="info-item"><span class="info-number ">02.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">complementos del SAT </h5>
+                        <p class="info-text">Contamos con TODOS los complementos establecidos por el SAT</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 ">
+                    <div class="info-item"><span class="info-number ">03.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">seguridad </h5>
+                        <p class="info-text">La plataforma tiene seguridad digital de nivel militar, por lo que podemos
+                          tener la confianza que la información estará segura dentro del sistema</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End first about div-->
+    </div>
+  </section>
+  <!-- End  about Section-->
+  <!-- Start  pricing Section-->
+  <section class="pricing mega-section  " id="pricing">
+    <div class="container">
+      <div class="sec-heading  ">
+        <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">Precios</span>
+          <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>¿Cuanto </span> cuesta?</h2>
+          <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Debido a que cada contribuyente se encuentra en
+            situaciones específicas distintas, los precios pueden variar según el servicio requerido<br>
+            Todos nuestos paquetes incluyen el soporte y asesoría con respecto al uso de la factura electrónica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End  pricing Section-->
+  <!-- Start  faq Section-->
+  <section class="faq mega-section   " id="faq">
+    <div class="shape-top-left"></div>
+    <div class="shape-bottom-right"></div>
+    <div class="pattern-top-end-dir"></div>
+    <div class="pattern-bottom-start-dir"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-5 align-self-center">
+          <div class="faq-img start-dir-img-frame wow fadeIn  " data-wow-delay="0.2s"><img class="img-fluid "
+              loading="lazy" src="../assets/images/faq/faq-illustration.png" alt=""></div>
+        </div>
+        <div class="col-12 col-lg-7 ">
+          <div class="sec-heading  ">
+            <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">FAQs</span>
+              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Preguntas <span class='hollow-text'>frecuentes
+                </span></h2>
+            </div>
+          </div>
+          <!--Start Accordion List For FAQ-->
+          <div class="faq-accordion " id="accordion">
+            <div class="card mb-2">
+              <div class="card-header " id="heading-1">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">¿Requiero un equipo
+                    especial?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-1" aria-labelledby="collapse-1" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">Debido a que es una plataforma web, podemos realizar el uso completo del sistema
+                    desde cualquier dispositivo que tenga un explorador de internet (celular, tablet, laptop,
+                    computadora, MediaBox, etc...), no es necesario que el dispositivo sea tecnología de punta.</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-1">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">¿Necesito FIEL y
+                    SELLO?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-1" aria-labelledby="collapse-1" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">Por disposición del SAT, todos requieren de unos archivos de computadoras
+                    definidos como "e.firma" y "sello digital", la e.firma se debe trámitar personalmente por el
+                    representante/apoderado legal, mientras que el sello digital se trámita por internes<br>Nosotros
+                    ofrecemos el servicio de tramitar el sello digital sin ningún costo adicional</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-1">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">¿Cuanto tiempo tardaré
+                    en comenzar a facturar?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-1" aria-labelledby="collapse-1" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">Si ya contamos con FIEL y SELLO podríamos en un par de horas comenzar con la
+                    facturación, si le falta FIEL o SELLO, dependeremos totalmente de la plataforma del SAT, pudiendo
+                    tardar hasta 72 horas</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-2">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">¿Que documentos puedo
+                    generar?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-2" aria-labelledby="collapse-2" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">El portal de facturación maneja TODOS los tipos de documentos y complementos
+                    establecidos por el SAT</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-2">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">¿Que tan actualizada es
+                    la plataforma?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-2" aria-labelledby="collapse-2" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">El sistema tiene los módulos necesarios para poder facturar cualquier escenario
+                    en lo que a factura electrónica respecta. Siempre y cuando esto esté dentro de lo permitido
+                    directamente por el SAT.<br>
+                    Así mismo, contamos con absolutamente todos los complementos definidos por el SAT</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-3">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">¿Tengo que acudir
+                    presencialmente para contratar su servicio?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-3" aria-labelledby="collapse-3" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">Debido a que la facturación electrónica es una innovación tecnológia en el pais,
+                    nos enfocamos en aprovechar la tecnología tanto como nos sea posible.<br>
+                    Actualmente contamos con clientes al rededor de toda la república, prestando soporte vía telefónica
+                    y a través de sistemas de control remoto en el equipo del cliente</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-header " id="heading-4">
+                <h5 class="mb-0 faq-title">
+                  <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse"
+                    data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">¿Hay algún consumo
+                    mínimo en el servicio?</button>
+                </h5>
+              </div>
+              <div class="collapse " id="collapse-4" aria-labelledby="collapse-4" data-bs-parent="#accordion">
+                <div class="card-body">
+                  <p class="faq-answer">El paquete más pequeño que manejamos es de 25 créditos, partiendo de ahí usted
+                    puede decidir si requiere un paquete mayor en su próxima recompra.<br>
+                    En cualquier momento puede recomprar un paquete mayor o menor al previamente adquirido.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End  faq Section-->
+  <!-- Start  page-footer Section-->
+  <footer class="page-footer dark-color-footer" id="page-footer">
+    <div class="overlay-photo-image-bg" data-bg-img="../assets/images/sections-bg-images/footer-bg-1.jpg"
+      data-bg-opacity=".25"></div>
+    <div class="container">
+      <div class="row footer-cols">
+        <div class="col-12 col-md-8 col-lg-4  footer-col "><img class="img-fluid footer-logo" loading="lazy"
+            src="../assets/images/logo/logo-colored.png" alt="logo" />
+          <div class="footer-col-content-wrapper">
+            <p class="footer-text-about-us ">
+              A continuación colocaremos ligas de interes para nuestros clientes, así como información adicional
+            </p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2  footer-col ">
+          <h2 class=" footer-col-title    ">Ligas de Interes</h2>
+          <div class="footer-col-content-wrapper">
+            <ul class="footer-menu ">
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                  href="https://fel.blikon.com/CFDI33FP/Presentacion/Usuario/Ingreso.aspx" target="_blank">Portal de
+                  Facturación</a>
+              </li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                  href="https://verificacfdi.facturaelectronica.sat.gob.mx" target="_blank">Verifica tus facturas</a>
+              </li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                  href="https://www.sat.gob.mx/aplicacion/operacion/29073/verifica-si-estas-registrado-en-el-rfc"
+                  target="_blank">Validador RFC</a>
+              </li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                  href="http://pys.sat.gob.mx/PyS/catPyS.aspx" target="_blank">Buscador de Catálogo</a>
+              </li>
+              <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                  href="http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo_20_Guia_de_llenado_CFDI.pdf"
+                  target="_blank">Guía de Facturación</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12     col-lg-4 footer-col ">
+          <h2 class=" footer-col-title    ">Información de Contacto</h2>
+          <div class="footer-col-content-wrapper">
+            <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a class="text-lowercase  info"
+                href="mailto:info@grupocorasa.mx">info@grupocorasa.mx</a></div>
+            <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="text-lowercase  info">Leandro
+                P. Gaxiola 117-A, Colonia Olivares</span></div>
+            <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="tel:+6622199434">(662)
+                219 9434 </a></div>
+            <div class="contact-info-card"><i class="bi flaticon-whatsapp icon"></i><a class="info"
+                href="https://wa.me/526624197556" target="_blank">(662) 419 7556</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyrights ">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 d-flex justify-content-start">
+            <p class="creadits">
+
+
+              &copy; 2023
+              Created by:
+
+              <a class="link" href="#0">Comercializadora Ortega y Accionistas</a>
+            </p>
+          </div>
+          <div class="col-12 col-md-6 d-flex justify-content-end">
+            <div class="terms-links"><a href="https://grupocorasa.mx/terms">Terms of Use </a>
+              | <a href="https://grupocorasa.mx/privacy">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End  page-footer Section-->
+  <!-- Start loading-screen Component-->
+  <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span
+      class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+  <!-- End loading-screen Component-->
+  <!-- Start back-to-top Component-->
+  <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
+  </div>
+  <!-- End back-to-top Component-->
+
+  <!--     JQuery     -->
+  <script src="../js/vendors/jquery-3.6.1.min.js"></script>
+
+  <!--     appear     -->
+  <script src="../js/vendors/appear.min.js"></script>
+
+  <!--     bootstrap     -->
+  <script src="../js/vendors/bootstrap.bundle.min.js"></script>
+
+  <!--     countTo     -->
+  <script src="../js/vendors/jquery.countTo.js"></script>
+
+  <!--     wow     -->
+  <script src="../js/vendors/wow.min.js"></script>
+
+  <!--     swiper     -->
+  <script src="../js/vendors/swiper-bundle.min.js"></script>
+
+  <!--     particles     -->
+  <script src="../js/vendors/particles.min.js"></script>
+
+  <!--     Vanilla-tilt     -->
+  <script src="../js/vendors/vanilla-tilt.min.js"></script>
+
+  <!--     isotope     -->
+  <script src="../js/vendors/isotope-min.js"></script>
+
+  <!--     fancybox     -->
+  <script src="../js/vendors/jquery.fancybox.min.js"></script>
+
+  <!--     main     -->
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
