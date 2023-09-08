@@ -143,7 +143,6 @@ a {
     font-family: "Oswald", sans-serif;
     line-height: 1.2;
     padding: 10px 0;
-    font-size: 2.0rem;
     color: #32C36C;
     text-transform: uppercase;
 }
@@ -531,11 +530,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 .item-feature {
     margin-bottom: 10px;
     margin-top: 40px;
-}
-
-.item-text {
-    font-size: 22px;
-    font-family: "Oswald", sans-serif;
 }
 
 .progress {
@@ -967,7 +961,7 @@ footer {
 }
 
 .service-item p {
-    height: auto;
+    height: 100px;
 }
 
 .img-about-top {
@@ -993,7 +987,7 @@ footer {
 }
 
 .item-text {
-    font-size: 22px;
+    font-size: 13px;
     font-family: "Oswald", sans-serif;
 }
 
