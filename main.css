@@ -35,7 +35,7 @@ h1 {
 }
 
 .fael {
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0.10)), url('../assets/images/sections-bg-images/fael_bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0.10)), url('assets/fael_bg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -51,7 +51,7 @@ h1 {
 }
 
 .coreso {
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(164, 222, 102, 0.10)), url('../assets/images/sections-bg-images/coreso_bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(164, 222, 102, 0.10)), url('assets/coreso_bg.jpg');
     background-size: cover;
     background-position: center;
 }
