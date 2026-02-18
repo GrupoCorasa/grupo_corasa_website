@@ -66,7 +66,25 @@ h1 {
     }
 }
 
+.shivelybros {
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(36, 173, 67, 0.20)),
+                url('assets/coreso_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 768px) {
+    .shivelybros {
+        float: right;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 50%;
+    }
+}
+
 .fael:hover,
-.coreso:hover {
+.coreso:hover,
+.shivelybros:hover {
     transform: scale(0.95);
 }
