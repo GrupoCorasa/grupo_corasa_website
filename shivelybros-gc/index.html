@@ -5,7 +5,7 @@
     <title>Corasa · Socio Shively Bros</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Grupo Corasa — Socio comercial autorizado de Shively Bros Inc. Servicios de soporte para manufactura en México con 75 años de experiencia.">
+    <meta name="description" content="Corasa — Socio comercial autorizado de Shively Bros Inc. Servicios de soporte para manufactura en México con 75 años de experiencia.">
     <link rel="icon" href="image/fav-icon.ico">
 
     <!-- Bootstrap -->
@@ -194,8 +194,20 @@
 
         /* ===== STATS STRIP ===== */
         .stats-strip {
-            background: var(--green);
-            padding: 2.2rem 0;
+            background: #00ae42;
+            padding: 2rem 0 2.2rem;
+        }
+        .stats-logo-row { text-align: center; margin-bottom: 1.2rem; }
+        .stats-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .stats-logo { height: 56px; width: auto; display: block; }
+        .stats-divider-row {
+            border-top: 1px solid rgba(255,255,255,.28);
+            margin: 0 0 1.4rem;
         }
         .stat-item { text-align: center; color: #fff; padding: .5rem; }
         .stat-number {
@@ -490,6 +502,63 @@
             border: 2px solid rgba(36,173,67,.2);
         }
         .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+        .map-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: .6rem;
+        }
+
+        /* ===== CLIENTS MARQUEE ===== */
+        .clients-section {
+            padding: 3.5rem 0;
+            background: var(--light);
+        }
+        .clients-outer {
+            overflow: hidden;
+            width: 100%;
+            /* fade edges */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+        .clients-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: clients-scroll 40s linear infinite;
+        }
+        .clients-outer:hover .clients-track {
+            animation-play-state: paused;
+        }
+        @keyframes clients-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .client-logo-item {
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .client-logo-item img {
+            max-height: 56px;
+            max-width: 140px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: .45;
+            transition: filter .35s, opacity .35s, transform .35s;
+        }
+        .clients-outer:hover .client-logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
 
         /* ===== FOOTER ===== */
         .site-footer {
@@ -556,7 +625,7 @@
     <nav class="navbar navbar-expand-lg site-nav">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center gap-2" href="https://grupocorasa.mx">
-                <img src="image/slider/logo.png" alt="Grupo Corasa">
+                <img src="image/slider/logo.png" alt="Corasa">
                 <span class="brand-text d-none d-md-block">Corasa &nbsp;·&nbsp; <span>Shively Bros</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -584,13 +653,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <span class="hero-badge"><i class="fa fa-handshake me-2"></i>Socio Autorizado · Shively Bros Inc.</span>
+                    <span class="hero-badge"><i class="fa fa-handshake me-2"></i>Socio Comercial Autorizado · Shively Bros Inc.</span>
                     <h1>Soporte para la<br><em>Manufactura</em><br>en México</h1>
-                    <p>Grupo Corasa lleva la experiencia de 75 años y 13 ubicaciones de Shively Bros a la industria manufacturera de México — soluciones integradas para reducir costos, mejorar calidad y maximizar productividad.</p>
+                    <p>Corasa lleva la experiencia de 75 años y 13 ubicaciones de Shively Bros a la industria manufacturera de México — soluciones integradas para reducir costos, mejorar calidad y maximizar productividad.</p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#servicios" class="btn-hero-primary">
-                            <i class="fa fa-cogs me-2"></i>Ver Servicios
-                        </a>
                         <a href="#catalogos" class="btn-hero-outline">
                             <i class="fa fa-file-pdf me-2"></i>Catálogos
                         </a>
@@ -606,6 +672,12 @@
     <!-- ===== STATS STRIP ===== -->
     <section class="stats-strip">
         <div class="container">
+            <div class="stats-logo-row">
+                <div class="stats-logo-wrap">
+                    <img src="image/family-shively-mexico.png" alt="Shively Bros. Mexico" class="stats-logo">
+                </div>
+            </div>
+            <div class="stats-divider-row"></div>
             <div class="row d-flex align-items-center text-center">
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
@@ -657,15 +729,11 @@
                         <h2 class="section-title">Socios Comerciales<br>de Shively Bros Inc.</h2>
                         <div class="title-bar"></div>
                         <p style="color:#555; line-height:1.8;">
-                            Grupo Corasa es socio comercial autorizado de <strong>Shively Bros Inc.</strong>, empresa líder en servicios de soporte para la manufactura fundada en Flint, Michigan, con más de 75 años de experiencia y presencia en 13 ubicaciones en América del Norte.
+                            Corasa es socio comercial autorizado de <strong>Shively Bros Inc.</strong>, empresa líder en servicios de soporte para la manufactura fundada en Flint, Michigan, con más de 75 años de experiencia y presencia en 13 ubicaciones en América del Norte.
                         </p>
                         <p style="color:#555; line-height:1.8; margin-bottom:2rem;">
-                            Ofrecemos soluciones integradas para mejorar la eficiencia operacional de industrias manufactureras en México, respaldados por la trayectoria, tecnología y metodología de Shively Bros — una empresa <em>Employee Owned, Customer Driven</em>.
+                            Ofrecemos soluciones integradas para mejorar la eficiencia operacional de industrias manufactureras en México, respaldados por la trayectoria, tecnología y metodología de Shively Bros.
                         </p>
-                        <div class="about-feature">
-                            <div class="about-feature-icon"><i class="fa fa-award"></i></div>
-                            <p><strong>Empresa de propietarios-empleados</strong> con cultura orientada al cliente y a la mejora continua.</p>
-                        </div>
                         <div class="about-feature">
                             <div class="about-feature-icon"><i class="fa fa-map-marker-alt"></i></div>
                             <p><strong>13 ubicaciones</strong> en Michigan, Indiana, Nueva York, Ontario y México.</p>
@@ -694,20 +762,6 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-tools"></i></div>
-                        <h5>Preset de Herramientas</h5>
-                        <p>Preajuste y medición de herramientas de corte para optimizar tiempos de cambio, reducir scrap y alargar la vida útil de cada herramienta.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-ruler-combined"></i></div>
-                        <h5>Calibración y Trazabilidad</h5>
-                        <p>Gestión y calibración de instrumentos de medición con trazabilidad completa, garantizando la exactitud del proceso y la conformidad de calidad.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
                         <div class="srv-icon"><i class="fa fa-boxes-stacked"></i></div>
                         <h5>Gestión de Inventario</h5>
                         <p>Administración integral de inventario y cadena de suministro con soluciones de punto de uso y vending automatizado para su planta.</p>
@@ -723,15 +777,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="srv-card">
                         <div class="srv-icon"><i class="fa fa-recycle"></i></div>
-                        <h5>Gestión de Regrind</h5>
+                        <h5>Gestión de Regrind & Retep</h5>
                         <p>Programas de regrind y reafilado de herramientas de corte para maximizar su vida útil, reducir costos de reposición y minimizar desperdicios.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-industry"></i></div>
-                        <h5>Recuperación de Scrap</h5>
-                        <p>Recuperación y disposición eficiente de desperdicio metálico y materiales de proceso, generando valor adicional del material residual.</p>
                     </div>
                 </div>
             </div>
@@ -750,23 +797,43 @@
                 </p>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-5 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="catalog-card">
                         <i class="fa fa-file-pdf catalog-icon"></i>
                         <h4>Catálogo de Productos</h4>
                         <p>Portafolio completo de productos y soluciones industriales disponibles a través de nuestra alianza con Shively Bros.</p>
-                        <a href="../assets/CATALOGO VENTA P IMP MODIF 30102024.pdf" target="_blank" class="btn-download">
+                        <a href="../assets/Catálogo de Productos.pdf" target="_blank" class="btn-download">
                             <i class="fa fa-download"></i> Descargar Catálogo
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="catalog-card">
                         <i class="fa fa-file-pdf catalog-icon"></i>
                         <h4>Presentación de Filtros</h4>
                         <p>Soluciones de filtración industrial y línea completa de filtros para procesos de manufactura de alta precisión.</p>
-                        <a href="../assets/presentacion filtros.pdf" target="_blank" class="btn-download">
+                        <a href="../assets/Presentación de Filtros.pdf" target="_blank" class="btn-download">
                             <i class="fa fa-download"></i> Descargar Presentación
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-handshake catalog-icon"></i>
+                        <h4>Acuerdos Comerciales</h4>
+                        <p>Listado de marcas con las que contamos con acuerdo comercial directo — la base que nos permite ofrecer precios competitivos en cada categoría.</p>
+                        <a href="../assets/Line Card.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Descargar Lista
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-file-powerpoint catalog-icon"></i>
+                        <h4>Presentación de Productos</h4>
+                        <p>Presentación visual del portafolio de productos Shively Bros, ideal para compartir con su equipo de compras o dirección.</p>
+                        <a href="../assets/Catálogo de Productos SBM-COR.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Ver Presentación
                         </a>
                     </div>
                 </div>
@@ -790,38 +857,105 @@
                 <div class="col-lg-6 order-lg-1">
                     <div class="why-content">
                         <p class="section-label">¿Por qué elegirnos?</p>
-                        <h2 class="section-title">El Modelo <em style="color:var(--green); font-style:normal;">STARS</em><br>de Shively Bros</h2>
+                        <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2.1rem);">¿Su proveedor actual<br>le está dando <em style="color:var(--green); font-style:normal;">todo esto</em>?</h2>
                         <div class="title-bar"></div>
                         <div class="star-item">
-                            <div class="star-icon"><i class="fa fa-shield-halved"></i></div>
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Si acordamos el día 15, ¡el día 15 lo tienes!">
+                                <i class="fa fa-calendar-check"></i>
+                            </div>
                             <div>
-                                <h6>Seguridad &amp; Sustentabilidad</h6>
-                                <p>Proveedor comprometido con la seguridad del proceso, la salud de los operadores y la sustentabilidad medioambiental en cada etapa.</p>
+                                <h6>Fechas de entrega que sí se cumplen</h6>
+                                <p>En México los retrasos son la norma. Con Shively Bros, la fecha acordada es la fecha en que recibe su pedido — sin excusas, sin sorpresas.</p>
                             </div>
                         </div>
                         <div class="star-item">
-                            <div class="star-icon"><i class="fa fa-users"></i></div>
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Cambiamos el consumible por una opción equivalente y bajamos 18% el costo mensual.">
+                                <i class="fa fa-piggy-bank"></i>
+                            </div>
                             <div>
-                                <h6>Team — Empleados Propietarios</h6>
-                                <p><em>Employee Owned, Customer Driven.</em> Un equipo altamente comprometido porque tiene inversión directa en el éxito de su cliente.</p>
+                                <h6>Reducción de costos sin sacrificar calidad</h6>
+                                <p>Gracias a nuestro amplio portafolio de soluciones, encontramos alternativas que reducen su gasto sin comprometer el nivel de calidad que necesita.</p>
                             </div>
                         </div>
                         <div class="star-item">
-                            <div class="star-icon"><i class="fa fa-chart-line"></i></div>
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Cotizamos el mismo artículo y fuimos 12% más baratos y entregamos antes que el proveedor de siempre.">
+                                <i class="fa fa-tags"></i>
+                            </div>
                             <div>
-                                <h6>Añadiendo Valor</h6>
-                                <p>Soluciones a medida enfocadas en reducción de costos de proceso, mejora continua y optimización de la cadena de suministro.</p>
+                                <h6>Precios que compiten con cualquier proveedor nacional</h6>
+                                <p>Nuestros acuerdos comerciales directos con múltiples marcas nos permiten cotizar por debajo de lo que espera. Antes de renovar con su proveedor actual, pídanos una cotización.</p>
                             </div>
                         </div>
                         <div class="star-item">
-                            <div class="star-icon"><i class="fa fa-headset"></i></div>
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Rediseñamos el esquema de suministro y eliminaron dos horas de paro no programado por semana.">
+                                <i class="fa fa-gear"></i>
+                            </div>
                             <div>
-                                <h6>Respuesta &amp; Reducción de Waste</h6>
-                                <p>Servicio 24/7, tiempos de respuesta comprometidos y enfoque sistemático en la eliminación de desperdicios en toda la cadena de valor.</p>
+                                <h6>Soluciones hechas a la medida de su operación</h6>
+                                <p>No vendemos catálogo — resolvemos problemas. Analizamos su proceso, identificamos oportunidades de mejora y diseñamos una solución específica para su planta.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS ===== -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="text-center mb-4">
+                <p class="section-label">Empresas que nos eligen</p>
+            </div>
+        </div>
+        <div class="clients-outer">
+            <div class="clients-track">
+                <!-- Set 1 -->
+                <div class="client-logo-item"><img src="image/clients/amd-plastics.png" alt="AMD Plastics"></div>
+                <div class="client-logo-item"><img src="image/clients/copeland.png" alt="Copeland"></div>
+                <div class="client-logo-item"><img src="image/clients/denso.png" alt="Denso"></div>
+                <div class="client-logo-item"><img src="image/clients/dicastal.png" alt="Dicastal"></div>
+                <div class="client-logo-item"><img src="image/clients/gm.png" alt="General Motors"></div>
+                <div class="client-logo-item"><img src="image/clients/kiriu.png" alt="Kiriu"></div>
+                <div class="client-logo-item"><img src="image/clients/mabe.png" alt="Mabe"></div>
+                <div class="client-logo-item"><img src="image/clients/musashi.png" alt="Musashi"></div>
+                <div class="client-logo-item"><img src="image/clients/nhk-spring-mexico.png" alt="NHK Spring Mexico"></div>
+                <div class="client-logo-item"><img src="image/clients/nidec-corporation.png" alt="Nidec Corporation"></div>
+                <div class="client-logo-item"><img src="image/clients/onnera-group.png" alt="Onnera Group"></div>
+                <div class="client-logo-item"><img src="image/clients/otscon.png" alt="Otscon"></div>
+                <div class="client-logo-item"><img src="image/clients/purem.png" alt="Purem"></div>
+                <div class="client-logo-item"><img src="image/clients/stellantis.png" alt="Stellantis"></div>
+                <div class="client-logo-item"><img src="image/clients/toyoda-gosei.png" alt="Toyoda Gosei"></div>
+                <div class="client-logo-item"><img src="image/clients/tti.png" alt="TTI"></div>
+                <!-- Set 2 — duplicate for seamless infinite loop -->
+                <div class="client-logo-item"><img src="image/clients/amd-plastics.png" alt="AMD Plastics"></div>
+                <div class="client-logo-item"><img src="image/clients/copeland.png" alt="Copeland"></div>
+                <div class="client-logo-item"><img src="image/clients/denso.png" alt="Denso"></div>
+                <div class="client-logo-item"><img src="image/clients/dicastal.png" alt="Dicastal"></div>
+                <div class="client-logo-item"><img src="image/clients/gm.png" alt="General Motors"></div>
+                <div class="client-logo-item"><img src="image/clients/kiriu.png" alt="Kiriu"></div>
+                <div class="client-logo-item"><img src="image/clients/mabe.png" alt="Mabe"></div>
+                <div class="client-logo-item"><img src="image/clients/musashi.png" alt="Musashi"></div>
+                <div class="client-logo-item"><img src="image/clients/nhk-spring-mexico.png" alt="NHK Spring Mexico"></div>
+                <div class="client-logo-item"><img src="image/clients/nidec-corporation.png" alt="Nidec Corporation"></div>
+                <div class="client-logo-item"><img src="image/clients/onnera-group.png" alt="Onnera Group"></div>
+                <div class="client-logo-item"><img src="image/clients/otscon.png" alt="Otscon"></div>
+                <div class="client-logo-item"><img src="image/clients/purem.png" alt="Purem"></div>
+                <div class="client-logo-item"><img src="image/clients/stellantis.png" alt="Stellantis"></div>
+                <div class="client-logo-item"><img src="image/clients/toyoda-gosei.png" alt="Toyoda Gosei"></div>
+                <div class="client-logo-item"><img src="image/clients/tti.png" alt="TTI"></div>
             </div>
         </div>
     </section>
@@ -835,7 +969,7 @@
                 <div class="title-bar center"></div>
             </div>
             <div class="row g-5 align-items-center">
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="contact-info-item">
                         <div class="contact-icon"><i class="fa fa-map-marker-alt"></i></div>
                         <div>
@@ -849,7 +983,7 @@
                         <div class="contact-icon"><i class="fa fa-envelope"></i></div>
                         <div>
                             <div class="label">Correo Electrónico</div>
-                            <a href="mailto:info@grupocorasa.mx">info@grupocorasa.mx</a>
+                            <a href="mailto:infoshivelybros@grupocorasa.mx">infoshivelybros@grupocorasa.mx</a>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -868,10 +1002,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-4">
+                    <p class="map-label">Representante Comercial Sonora</p>
                     <div class="map-wrap">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217.8838816721484!2d-110.98412891384214!3d29.10148571026169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce841d0f0e6d91%3A0xa63438f346a1847a!2sComercializadora%20Ortega%20y%20Accionistas%2C%20S.A.%20de%20C.V.!5e0!3m2!1sen!2smx!4v1694027272784!5m2!1sen!2smx"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <p class="map-label">Filial México — Shively Bros Inc.</p>
+                    <div class="map-wrap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.6694710337715!2d-100.97347152638896!3d25.482710077528214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868812d7133dfddf%3A0x2e1495a218228685!2sShively%20Bros.!5e0!3m2!1sen!2smx!4v1774312276155!5m2!1sen!2smx"
                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -885,23 +1029,20 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <img src="image/slider/logo.png" alt="Grupo Corasa" height="48" class="mb-3">
+                    <img src="image/slider/logo.png" alt="Corasa" height="48" class="mb-3">
                     <p class="footer-desc">
-                        Grupo Corasa es socio comercial autorizado de Shively Bros Inc. — proveedor líder de servicios de soporte para la manufactura con 75 años de experiencia en América del Norte.
+                        Corasa es socio comercial autorizado de Shively Bros Inc. — proveedor líder de servicios de soporte para la manufactura con 75 años de experiencia en América del Norte.
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <p class="footer-title">Servicios</p>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Preset de Herramientas</a>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Calibración y Trazabilidad</a>
                     <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Gestión de Inventario</a>
                     <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Servicios de Procura</a>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Gestión de Regrind</a>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Recuperación de Scrap</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Gestión de Regrind &amp; Retep</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <p class="footer-title">Contacto</p>
-                    <a class="footer-link" href="mailto:info@grupocorasa.mx"><i class="fa fa-envelope"></i> info@grupocorasa.mx</a>
+                    <a class="footer-link" href="mailto:infoshivelybros@grupocorasa.mx"><i class="fa fa-envelope"></i> infoshivelybros@grupocorasa.mx</a>
                     <a class="footer-link" href="tel:6622199434"><i class="fa fa-phone"></i> (662) 219 9434</a>
                     <a class="footer-link" href="tel:6622161045"><i class="fa fa-phone"></i> (662) 216 1045</a>
                     <a class="footer-link" href="https://wa.me/526624197556"><i class="fa-brands fa-whatsapp"></i> (662) 419 7556</a>
@@ -937,6 +1078,10 @@
                 link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
         });
+
+        // Bootstrap tooltips
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            .forEach(el => new bootstrap.Tooltip(el));
     </script>
 
 </body>
