@@ -1,0 +1,15 @@
+# Defense-in-depth: block direct HTTP access to anything in this directory.
+# contact.php lives one level UP (in /shivelybros-gc/) and is the only
+# public entry point. Everything inside contact/ (config + vendored PHPMailer)
+# is included at runtime by contact.php and must never be requestable.
+
+# Apache 2.4+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Apache 2.2 (legacy shared hosting fallback)
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>

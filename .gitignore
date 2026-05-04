@@ -1,0 +1,12 @@
+# Contact form secrets — real config lives here, never commit.
+# config.example.php IS committed and shows the required shape.
+shivelybros-gc/contact/config.php
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log

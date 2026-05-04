@@ -8,6 +8,15 @@
     <meta name="description" content="Corasa — Socio comercial autorizado de Shively Bros Inc. Servicios de soporte para manufactura en México con 75 años de experiencia.">
     <link rel="icon" href="image/fav-icon.ico">
 
+    <!-- Google tag (gtag.js) — Shively Bros Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-TODO_SHIVELY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-TODO_SHIVELY');
+    </script>
+
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -616,6 +625,152 @@
             .why-img-wrap img { height: 320px; }
             .about-img-wrap { padding: 2rem 0 0 1.5rem; }
         }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 2.5rem 2.25rem;
+            box-shadow: 0 22px 60px rgba(0,0,0,.22);
+            position: relative;
+            border-top: 4px solid var(--green);
+        }
+        .contact-form-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: .35rem;
+        }
+        .contact-form-card .form-intro {
+            color: #5f6772;
+            font-size: .95rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+        }
+
+        /* Floating-label inputs */
+        .contact-form-card .form-floating > .form-control,
+        .contact-form-card .form-floating > .form-select {
+            border-radius: 8px;
+            border: 1px solid #d8dce1;
+            background: #fafbfc;
+            font-size: .95rem;
+            min-height: 58px;
+            padding: 1.55rem .9rem .4rem;
+            transition: border-color .15s, box-shadow .15s, background .15s;
+        }
+        .contact-form-card .form-floating > textarea.form-control {
+            min-height: 140px;
+            padding-top: 1.85rem;
+            resize: vertical;
+        }
+        .contact-form-card .form-floating > .form-control:focus,
+        .contact-form-card .form-floating > .form-select:focus {
+            border-color: var(--green);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(36,173,67,.18);
+            outline: none;
+        }
+        .contact-form-card .form-floating > label {
+            color: #8a95a3;
+            font-size: .95rem;
+            padding: 1rem .9rem;
+            transition: color .15s;
+        }
+        .contact-form-card .form-floating > .form-control:focus ~ label,
+        .contact-form-card .form-floating > .form-control:not(:placeholder-shown) ~ label,
+        .contact-form-card .form-floating > .form-select ~ label {
+            color: var(--green);
+            font-weight: 600;
+            font-size: .68rem !important;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            opacity: 1 !important;
+            transform: scale(1) translateY(-.65rem) translateX(.1rem) !important;
+        }
+
+        /* Helper / counter row */
+        .contact-form-card .form-helper {
+            font-size: .76rem;
+            color: var(--muted);
+            margin-top: .4rem;
+            line-height: 1.4;
+        }
+        .contact-form-card .form-helper-counter { font-variant-numeric: tabular-nums; }
+
+        /* Submit area */
+        .contact-form-card .submit-wrap { margin-top: 1.75rem; }
+        .contact-form-card .btn-submit {
+            width: 100%;
+            background: var(--green);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            box-shadow: 0 8px 22px rgba(36,173,67,.32);
+            transition: background .15s, transform .15s, box-shadow .15s;
+        }
+        .contact-form-card .btn-submit:hover:not(:disabled) {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(36,173,67,.4);
+        }
+        .contact-form-card .btn-submit:disabled { opacity: .7; cursor: not-allowed; box-shadow: none; }
+
+        /* Honeypot — visually & assistively hidden */
+        .contact-form-card .form-honeypot {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        /* Inline alerts */
+        .contact-form-card .form-alert {
+            display: none;
+            padding: .9rem 1.1rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            font-size: .92rem;
+            line-height: 1.5;
+        }
+        .contact-form-card .form-alert.alert-success {
+            background: #e8f7ec;
+            color: #145c2a;
+            border: 1px solid #b6e3c1;
+        }
+        .contact-form-card .form-alert.alert-error {
+            background: #fbe9e9;
+            color: #7a1f1f;
+            border: 1px solid #f0bcbc;
+        }
+
+        /* Footer microcopy */
+        .contact-form-card .recaptcha-disclosure {
+            font-size: .72rem;
+            color: var(--muted);
+            margin-top: 1.1rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .contact-form-card .recaptcha-disclosure a { color: var(--green-dk); text-decoration: underline; }
+
+        /* Mobile */
+        @media (max-width: 575.98px) {
+            .contact-form-card { padding: 1.75rem 1.25rem; }
+        }
     </style>
 </head>
 
@@ -969,6 +1124,99 @@
                 <h2 class="section-title light">Contáctanos</h2>
                 <div class="title-bar center"></div>
             </div>
+
+            <!-- Row 1: form, centered -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="contact-form-card">
+                        <h3>Cuéntenos qué necesita</h3>
+                        <p class="form-intro">Complete el formulario y un representante le contactará a la brevedad.</p>
+
+                        <div id="contact-form-success" class="form-alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="contact-form-error"   class="form-alert alert-error"   role="alert"  aria-live="assertive"></div>
+
+                        <form id="contact-form" novalidate>
+                            <!-- Honeypot: bots fill this; humans don't -->
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label>No completar este campo
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </label>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-nombre" name="nombre" maxlength="100" required placeholder="Nombre completo" autocomplete="name">
+                                        <label for="cf-nombre">Nombre completo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-empresa" name="empresa" maxlength="100" required placeholder="Empresa" autocomplete="organization">
+                                        <label for="cf-empresa">Empresa *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-cargo" name="cargo" maxlength="100" required placeholder="Cargo" autocomplete="organization-title">
+                                        <label for="cf-cargo">Cargo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="cf-email" name="email" maxlength="150" required placeholder="correo@empresa.com" autocomplete="email">
+                                        <label for="cf-email">Email corporativo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="cf-telefono" name="telefono" maxlength="30" placeholder="Teléfono / WhatsApp" autocomplete="tel">
+                                        <label for="cf-telefono">Teléfono / WhatsApp (opcional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="cf-servicio" name="servicio" required>
+                                            <option value="" selected disabled hidden></option>
+                                            <option value="Gestión de Inventario">Gestión de Inventario</option>
+                                            <option value="Servicios de Procura">Servicios de Procura</option>
+                                            <option value="Gestión de Regrind &amp; Retep">Gestión de Regrind &amp; Retep</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <label for="cf-servicio">Servicio de Interés *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="cf-requerimiento" name="requerimiento" maxlength="2000" required placeholder="Describa su requerimiento"></textarea>
+                                        <label for="cf-requerimiento">Requerimiento Específico *</label>
+                                    </div>
+                                    <div class="form-helper d-flex justify-content-between gap-3">
+                                        <span>Describa volúmenes, productos o tiempos específicos para una propuesta más precisa.</span>
+                                        <span class="form-helper-counter"><span id="cf-req-count">0</span>/2000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="g-recaptcha-response" value="">
+
+                            <div class="submit-wrap">
+                                <button type="submit" class="btn-submit">
+                                    <i class="fa fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </div>
+
+                            <p class="recaptcha-disclosure">
+                                Este sitio está protegido por reCAPTCHA y se aplican la
+                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad</a> y los
+                                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de Servicio</a> de Google.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: contact info + maps (original layout) -->
             <div class="row g-5 align-items-center">
                 <div class="col-lg-3">
                     <div class="contact-info-item">
@@ -1094,6 +1342,17 @@
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
             .forEach(el => new bootstrap.Tooltip(el));
     </script>
+
+    <!-- Contact form: reCAPTCHA v3 + handler.
+         Replace the TODO_* placeholders with real keys / Google Ads conversion target. -->
+    <script>
+        window.__SHIVELY_FORM_CFG = {
+            recaptchaSiteKey: '6LcZ_tAsAAAAAMym7IKUgttUKtc3cc_sa4d_OWjQ',
+            adsConversionId:  'AW-TODO_SHIVELY/TODO_CONVERSION_LABEL'
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcZ_tAsAAAAAMym7IKUgttUKtc3cc_sa4d_OWjQ"></script>
+    <script src="js/contact-form.js"></script>
 
 </body>
 </html>
