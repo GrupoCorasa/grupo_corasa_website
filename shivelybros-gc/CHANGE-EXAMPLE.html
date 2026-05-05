@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Corasa · Socio Shively Bros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corasa — Socio comercial autorizado de Shively Bros Inc. Servicios de soporte para manufactura en México con 75 años de experiencia.">
+    <link rel="icon" href="image/fav-icon.ico">
+
+    <!-- Google tag (gtag.js) — Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61H5JPVFCH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-61H5JPVFCH');
+    </script>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Slick (used by Casos de Éxito carousel) -->
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/slick-theme.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --green:     #24ad43;
+            --green-dk:  #1a8533;
+            --dark:      #12161c;
+            --dark2:     #1b2028;
+            --dark3:     #252d38;
+            --light:     #f5f6f8;
+            --muted:     #8a95a3;
+            --white:     #ffffff;
+        }
+
+        /* ===== RESET / BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            color: #3a3a3a;
+            background: #fff;
+            margin: 0;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; }
+
+        /* ===== NAVBAR ===== */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(18, 22, 28, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(36,173,67,.25);
+            padding: 0;
+        }
+        .site-nav .container-fluid { padding: 0 2rem; }
+        .site-nav .navbar-brand img { height: 52px; }
+        .site-nav .brand-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            letter-spacing: .5px;
+        }
+        .site-nav .brand-text span { color: var(--green); }
+        .site-nav .nav-link {
+            color: rgba(255,255,255,.80) !important;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            padding: 1.4rem .9rem !important;
+            transition: color .2s;
+        }
+        .site-nav .nav-link:hover { color: var(--green) !important; }
+        .site-nav .navbar-toggler { border-color: rgba(36,173,67,.4); }
+        .site-nav .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .nav-cta {
+            background: var(--green) !important;
+            color: #fff !important;
+            padding: .45rem 1.1rem !important;
+            border-radius: 4px;
+            margin-left: .5rem;
+            margin-top: .85rem;
+            margin-bottom: .85rem;
+        }
+        .nav-cta:hover { background: var(--green-dk) !important; }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(
+                        135deg,
+                        rgba(0,0,0,.75) 0%,
+                        rgba(0,0,0,.55) 60%,
+                        rgba(36,173,67,.15) 100%),
+                        url('image/hero.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: .35rem 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.4rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 em {
+            color: var(--green);
+            font-style: normal;
+        }
+        .hero p {
+            color: rgba(255,255,255,.78);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .btn-hero-primary {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            padding: .8rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background .25s, transform .2s;
+        }
+        .btn-hero-primary:hover {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        .btn-hero-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,.55);
+            padding: .8rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: border-color .25s, background .25s;
+        }
+        .btn-hero-outline:hover {
+            border-color: var(--green);
+            background: rgba(36,173,67,.12);
+            color: #fff;
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,.5);
+            font-size: .75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .hero-scroll i {
+            display: block;
+            font-size: 1.4rem;
+            margin-top: .4rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(8px); }
+        }
+
+        /* ===== STATS STRIP ===== */
+        .stats-strip {
+            background: #00ae42;
+            padding: 2rem 0 2.2rem;
+        }
+        .stats-logo-row { text-align: center; margin-bottom: 1.2rem; }
+        .stats-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .stats-logo { height: 56px; width: auto; display: block; }
+        .stats-divider-row {
+            border-top: 1px solid rgba(255,255,255,.28);
+            margin: 0 0 1.4rem;
+        }
+        .stat-item { text-align: center; color: #fff; padding: .5rem; }
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: .88;
+            margin-top: .3rem;
+        }
+        .stat-divider {
+            width: 1px;
+            background: rgba(255,255,255,.3);
+            align-self: stretch;
+        }
+
+        /* ===== SECTION LABEL ===== */
+        .section-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: .78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: .5rem;
+        }
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--dark);
+        }
+        .section-title.light { color: #fff; }
+        .title-bar {
+            width: 48px; height: 3px;
+            background: var(--green);
+            margin: 1rem 0 1.8rem;
+        }
+        .title-bar.center { margin: 1rem auto 1.8rem; }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section { padding: 6rem 0; background: #fff; }
+        .about-img-wrap {
+            position: relative;
+            padding-top: 3rem;
+            padding-left: 3rem;
+        }
+        .about-img-wrap img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+        .about-badge {
+            position: absolute;
+            top: 0; left: 0;
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 1.2rem;
+            width: 140px;
+            border-radius: 4px;
+        }
+        .about-badge .num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .about-badge .txt { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .about-content { padding: 2rem 1rem 2rem 3rem; }
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .about-feature-icon {
+            flex-shrink: 0;
+            width: 38px; height: 38px;
+            background: rgba(36,173,67,.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: .95rem;
+        }
+        .about-feature p { margin: 0; line-height: 1.6; }
+        .about-feature strong { color: var(--dark); }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            padding: 6rem 0;
+            background: var(--dark2);
+            position: relative;
+        }
+        .services-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('image/services-bg.jpg') center / cover no-repeat;
+            opacity: .06;
+        }
+        .services-section .container { position: relative; }
+        .srv-card {
+            background: var(--dark3);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 8px;
+            padding: 2.2rem 1.8rem;
+            text-align: center;
+            transition: border-color .3s, transform .3s, box-shadow .3s;
+            height: 100%;
+        }
+        .srv-card:hover {
+            border-color: var(--green);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,.4);
+        }
+        .srv-icon {
+            width: 72px; height: 72px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.4rem;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+        .srv-card h5 {
+            color: #fff;
+            font-size: 1.05rem;
+            margin-bottom: .8rem;
+        }
+        .srv-card p {
+            color: var(--muted);
+            font-size: .88rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== CATALOGS SECTION ===== */
+        .catalogs-section { padding: 6rem 0; background: var(--light); }
+        .catalog-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,.07);
+            transition: transform .3s, box-shadow .3s;
+            height: 100%;
+        }
+        .catalog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,.12);
+        }
+        .catalog-icon {
+            font-size: 3.5rem;
+            color: var(--green);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        .catalog-card h4 { font-size: 1.3rem; margin-bottom: .8rem; color: var(--dark); }
+        .catalog-card p { color: #666; font-size: .9rem; line-height: 1.7; margin-bottom: 1.6rem; }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--green);
+            color: #fff;
+            padding: .7rem 1.6rem;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: .9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background .25s, transform .2s;
+        }
+        .btn-download:hover {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-section { padding: 6rem 0; background: #fff; }
+        .why-img-wrap {
+            position: relative;
+            padding-bottom: 3rem;
+            padding-right: 3rem;
+        }
+        .why-img-wrap img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .why-badge {
+            position: absolute;
+            bottom: 0; right: 0;
+            background: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 1.2rem;
+            width: 150px;
+            border-radius: 4px;
+        }
+        .why-badge .num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1;
+        }
+        .why-badge .txt { font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.7); }
+        .why-content { padding: 2rem 3rem 2rem 1rem; }
+        .star-item {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+            align-items: flex-start;
+        }
+        .star-icon {
+            flex-shrink: 0;
+            width: 48px; height: 48px;
+            background: var(--green);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .star-item h6 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: .3rem;
+        }
+        .star-item p { font-size: .88rem; color: #666; margin: 0; line-height: 1.6; }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 6rem 0;
+            background: linear-gradient(rgba(18,22,28,.92), rgba(18,22,28,.92)),
+                        url('image/slider1.jpg') center / cover no-repeat;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+        .contact-icon {
+            flex-shrink: 0;
+            width: 42px; height: 42px;
+            background: rgba(36,173,67,.15);
+            border: 1px solid rgba(36,173,67,.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: .95rem;
+        }
+        .contact-info-item a {
+            color: rgba(255,255,255,.8);
+            font-size: .92rem;
+            line-height: 1.5;
+            transition: color .2s;
+        }
+        .contact-info-item a:hover { color: var(--green); }
+        .contact-info-item .label {
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green);
+            margin-bottom: .1rem;
+        }
+        .map-wrap {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 360px;
+            border: 2px solid rgba(36,173,67,.2);
+        }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+        .map-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: .6rem;
+        }
+
+        /* ===== CLIENTS MARQUEE ===== */
+        .clients-section {
+            padding: 3.5rem 0;
+            background: var(--light);
+        }
+        .clients-outer {
+            overflow: hidden;
+            width: 100%;
+            /* fade edges */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+        .clients-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: clients-scroll 40s linear infinite;
+        }
+        .clients-outer:hover .clients-track {
+            animation-play-state: paused;
+        }
+        @keyframes clients-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .client-logo-item {
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .client-logo-item img {
+            max-height: 56px;
+            max-width: 140px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: .45;
+            transition: filter .35s, opacity .35s, transform .35s;
+        }
+        .clients-outer:hover .client-logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--dark);
+            padding: 3rem 0 0;
+            border-top: 3px solid var(--green);
+        }
+        .footer-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .footer-brand span { color: var(--green); }
+        .footer-desc { color: var(--muted); font-size: .88rem; line-height: 1.7; }
+        .footer-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            color: var(--muted);
+            font-size: .88rem;
+            margin-bottom: .6rem;
+            transition: color .2s;
+        }
+        .footer-link i { color: var(--green); font-size: .8rem; width: 16px; }
+        .footer-link:hover { color: #fff; }
+        .footer-bottom {
+            background: rgba(0,0,0,.3);
+            padding: 1rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .footer-bottom p { color: var(--muted); font-size: .82rem; margin: 0; }
+        .footer-bottom a { color: var(--green); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991.98px) {
+            .about-content { padding: 1.5rem 0; }
+            .why-content { padding: 2rem 0 1rem; }
+            .about-img-wrap { padding: 2.5rem 0 0 2rem; }
+            .why-img-wrap { padding-bottom: 2rem; padding-right: 0; }
+        }
+        @media (max-width: 767.98px) {
+            .stat-divider { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .about-img-wrap img,
+            .why-img-wrap img { height: 320px; }
+            .about-img-wrap { padding: 2rem 0 0 1.5rem; }
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 2.5rem 2.25rem;
+            box-shadow: 0 22px 60px rgba(0,0,0,.22);
+            position: relative;
+            border-top: 4px solid var(--green);
+        }
+        .contact-form-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: .35rem;
+        }
+        .contact-form-card .form-intro {
+            color: #5f6772;
+            font-size: .95rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+        }
+
+        /* Floating-label inputs */
+        .contact-form-card .form-floating > .form-control,
+        .contact-form-card .form-floating > .form-select {
+            border-radius: 8px;
+            border: 1px solid #d8dce1;
+            background: #fafbfc;
+            font-size: .95rem;
+            min-height: 58px;
+            padding: 1.55rem .9rem .4rem;
+            transition: border-color .15s, box-shadow .15s, background .15s;
+        }
+        .contact-form-card .form-floating > textarea.form-control {
+            min-height: 140px;
+            padding-top: 1.85rem;
+            resize: vertical;
+        }
+        .contact-form-card .form-floating > .form-control:focus,
+        .contact-form-card .form-floating > .form-select:focus {
+            border-color: var(--green);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(36,173,67,.18);
+            outline: none;
+        }
+        .contact-form-card .form-floating > label {
+            color: #8a95a3;
+            font-size: .95rem;
+            padding: 1rem .9rem;
+            transition: color .15s;
+        }
+        .contact-form-card .form-floating > .form-control:focus ~ label,
+        .contact-form-card .form-floating > .form-control:not(:placeholder-shown) ~ label,
+        .contact-form-card .form-floating > .form-select ~ label {
+            color: var(--green);
+            font-weight: 600;
+            font-size: .68rem !important;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            opacity: 1 !important;
+            transform: scale(1) translateY(-.65rem) translateX(.1rem) !important;
+        }
+
+        /* Helper / counter row */
+        .contact-form-card .form-helper {
+            font-size: .76rem;
+            color: var(--muted);
+            margin-top: .4rem;
+            line-height: 1.4;
+        }
+        .contact-form-card .form-helper-counter { font-variant-numeric: tabular-nums; }
+
+        /* Submit area */
+        .contact-form-card .submit-wrap { margin-top: 1.75rem; }
+        .contact-form-card .btn-submit {
+            width: 100%;
+            background: var(--green);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            box-shadow: 0 8px 22px rgba(36,173,67,.32);
+            transition: background .15s, transform .15s, box-shadow .15s;
+        }
+        .contact-form-card .btn-submit:hover:not(:disabled) {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(36,173,67,.4);
+        }
+        .contact-form-card .btn-submit:disabled { opacity: .7; cursor: not-allowed; box-shadow: none; }
+
+        /* Honeypot — visually & assistively hidden */
+        .contact-form-card .form-honeypot {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        /* Inline alerts */
+        .contact-form-card .form-alert {
+            display: none;
+            padding: .9rem 1.1rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            font-size: .92rem;
+            line-height: 1.5;
+        }
+        .contact-form-card .form-alert.alert-success {
+            background: #e8f7ec;
+            color: #145c2a;
+            border: 1px solid #b6e3c1;
+        }
+        .contact-form-card .form-alert.alert-error {
+            background: #fbe9e9;
+            color: #7a1f1f;
+            border: 1px solid #f0bcbc;
+        }
+
+        /* Footer microcopy */
+        .contact-form-card .recaptcha-disclosure {
+            font-size: .72rem;
+            color: var(--muted);
+            margin-top: 1.1rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .contact-form-card .recaptcha-disclosure a { color: var(--green-dk); text-decoration: underline; }
+
+        /* Mobile */
+        @media (max-width: 575.98px) {
+            .contact-form-card { padding: 1.75rem 1.25rem; }
+        }
+
+        /* ========================================================
+           CHANGE-EXAMPLE additions (staging demo only)
+           ======================================================== */
+
+        /* ----- HERO carousel + split layout ----- */
+        .hero {
+            min-height: 100vh;
+            padding: 7.5rem 0 4rem;
+        }
+        .hero h1 {
+            font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.6rem;
+            max-width: 100%;
+        }
+        .hero-carousel { position: relative; }
+        .hero-carousel .carousel-item {
+            transition: opacity .9s ease-in-out;
+        }
+        .hero-carousel .carousel-indicators {
+            position: relative;
+            margin: 1.4rem 0 0;
+            justify-content: flex-start;
+        }
+        .hero-carousel .carousel-indicators [data-bs-target] {
+            width: 32px;
+            height: 4px;
+            background: rgba(255,255,255,.35);
+            border: 0;
+            border-radius: 2px;
+            opacity: 1;
+            transition: background .3s, transform .3s;
+        }
+        .hero-carousel .carousel-indicators .active {
+            background: var(--green);
+            transform: scaleX(1.25);
+            transform-origin: left center;
+        }
+        @media (max-width: 991.98px) {
+            .hero { padding: 6rem 0 3rem; min-height: auto; }
+            .hero h1 { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+        }
+
+        /* ----- Compact contact form inside the hero ----- */
+        .contact-form-card.compact {
+            padding: 1.5rem 1.4rem;
+            border-radius: 12px;
+            box-shadow: 0 18px 48px rgba(0,0,0,.35);
+        }
+        .contact-form-card.compact h3 {
+            font-size: 1.2rem;
+            margin-bottom: .25rem;
+        }
+        .contact-form-card.compact .form-intro {
+            font-size: .82rem;
+            margin-bottom: 1rem;
+        }
+        .contact-form-card.compact .form-floating > .form-control,
+        .contact-form-card.compact .form-floating > .form-select {
+            min-height: 52px;
+            padding: 1.25rem .75rem .35rem;
+            font-size: .88rem;
+        }
+        .contact-form-card.compact .form-floating > textarea.form-control {
+            min-height: 88px;
+            padding-top: 1.45rem;
+        }
+        .contact-form-card.compact .form-floating > label {
+            font-size: .85rem;
+            padding: .85rem .75rem;
+        }
+        .contact-form-card.compact .submit-wrap { margin-top: 1rem; }
+        .contact-form-card.compact .btn-submit {
+            padding: .8rem 1.2rem;
+            font-size: .92rem;
+        }
+        .contact-form-card.compact .form-helper { display: none; }
+        .contact-form-card.compact .recaptcha-disclosure {
+            font-size: .68rem;
+            margin-top: .85rem;
+        }
+        @media (max-width: 991.98px) {
+            .contact-form-card.compact { margin-top: 2rem; }
+        }
+
+        /* ----- SERVICES additions: benefits list + Ver más CTA ----- */
+        .srv-card { display: flex; flex-direction: column; }
+        .srv-icon {
+            transition: transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+        }
+        .srv-card:hover .srv-icon {
+            transform: rotate(15deg) scale(1.08);
+            box-shadow: 0 12px 28px rgba(36,173,67,.35);
+        }
+        .srv-benefits {
+            list-style: none;
+            padding: 0;
+            margin: .5rem 0 1.4rem;
+            text-align: left;
+        }
+        .srv-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: .55rem;
+            color: rgba(255,255,255,.78);
+            font-size: .82rem;
+            line-height: 1.55;
+            margin-bottom: .45rem;
+        }
+        .srv-benefits li i {
+            color: var(--green);
+            font-size: .72rem;
+            margin-top: .35rem;
+            flex-shrink: 0;
+        }
+        .srv-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            margin-top: auto;
+            padding: .65rem 1.2rem;
+            border: 1.5px solid var(--green);
+            color: var(--green);
+            background: transparent;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            overflow: hidden;
+            transition: color .25s, border-color .25s;
+            z-index: 0;
+        }
+        .srv-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 0;
+            background: var(--green);
+            transition: width .32s cubic-bezier(.2,.7,.3,1);
+            z-index: -1;
+        }
+        .srv-cta:hover {
+            color: #fff;
+            border-color: var(--green);
+        }
+        .srv-cta:hover::before { width: 100%; }
+        .srv-cta i {
+            transition: transform .25s cubic-bezier(.2,.7,.3,1);
+        }
+        .srv-cta:hover i { transform: translateX(4px); }
+
+        /* ----- RESULTADOS QUE ENTREGAMOS section ----- */
+        .results-section {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .results-section .row { align-items: stretch; }
+        .result-card {
+            position: relative;
+            height: 100%;
+            background: #fff;
+            border-radius: 14px;
+            padding: 2.4rem 1.8rem;
+            box-shadow: 0 8px 28px rgba(0,0,0,.08);
+            border-top: 4px solid transparent;
+            text-align: center;
+            transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .result-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 44px rgba(0,0,0,.14);
+        }
+        .result-icon {
+            width: 78px; height: 78px;
+            border-radius: 50%;
+            background: rgba(36,173,67,.12);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.85rem;
+            margin-bottom: 1.2rem;
+            transition: transform .45s cubic-bezier(.2,.7,.3,1), background .35s, color .35s;
+        }
+        .result-card:hover .result-icon {
+            transform: rotate(-12deg) scale(1.08);
+        }
+        .result-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: .8rem;
+        }
+        .result-card p {
+            color: #5f6772;
+            font-size: .92rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .result-card.featured {
+            border-top-color: var(--green);
+            padding: 3rem 2.2rem;
+            box-shadow: 0 24px 60px rgba(36,173,67,.22);
+            background: linear-gradient(180deg, #ffffff 0%, #f6fbf7 100%);
+        }
+        .result-card.featured h4 { font-size: 1.4rem; }
+        .result-card.featured .result-icon {
+            width: 92px; height: 92px;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%);
+            color: #fff;
+            box-shadow: 0 12px 28px rgba(36,173,67,.35);
+        }
+        @media (min-width: 992px) {
+            .result-card.featured { transform: scale(1.04); }
+            .result-card.featured:hover { transform: scale(1.04) translateY(-6px); }
+        }
+        .results-cta-wrap { text-align: center; margin-top: 3rem; }
+        .btn-results-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            background: var(--green);
+            color: #fff;
+            border: 0;
+            padding: .95rem 2.2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            box-shadow: 0 12px 28px rgba(36,173,67,.32);
+            position: relative;
+            overflow: hidden;
+            transition: background .25s, transform .25s, box-shadow .25s;
+            z-index: 0;
+        }
+        .btn-results-cta i {
+            transition: transform .25s cubic-bezier(.2,.7,.3,1);
+        }
+        .btn-results-cta:hover { color: #fff; background: var(--green-dk); transform: translateY(-3px); box-shadow: 0 18px 36px rgba(36,173,67,.45); }
+        .btn-results-cta:hover i { transform: translateX(4px); }
+
+        /* ----- CASOS DE ÉXITO section ----- */
+        .casos-section {
+            padding: 6rem 0;
+            background: var(--dark2);
+            position: relative;
+        }
+        .casos-disclaimer {
+            text-align: center;
+            color: rgba(255,255,255,.55);
+            font-size: .82rem;
+            font-style: italic;
+            margin: -.5rem auto 2.5rem;
+            max-width: 560px;
+        }
+        .casos-slider { margin: 0 -.75rem; }
+        .casos-slider .slick-slide { padding: .5rem .75rem; height: auto; }
+        .casos-slider .slick-track {
+            display: flex !important;
+            align-items: stretch;
+        }
+        .casos-slider .slick-slide > div { height: 100%; }
+        .case-card {
+            position: relative;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.8rem 1.6rem 1.6rem;
+            border-left: 4px solid var(--green);
+            box-shadow: 0 12px 32px rgba(0,0,0,.28);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+        }
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 48px rgba(0,0,0,.36);
+        }
+        .case-stars {
+            color: #ffb703;
+            font-size: .82rem;
+            margin-bottom: .85rem;
+            letter-spacing: 1.5px;
+        }
+        .case-quote {
+            color: #2e3640;
+            font-size: .95rem;
+            font-style: italic;
+            line-height: 1.65;
+            margin: 0 0 1.2rem;
+            flex: 1;
+        }
+        .case-quote::before {
+            content: '\201C';
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            color: var(--green);
+            line-height: .6;
+            margin-right: .25rem;
+            vertical-align: -.35rem;
+        }
+        .case-attrib {
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            color: var(--green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+            padding-top: .8rem;
+            border-top: 1px solid rgba(0,0,0,.06);
+        }
+        .casos-slider .slick-dots {
+            position: relative;
+            bottom: auto;
+            margin-top: 2rem;
+        }
+        .casos-slider .slick-dots li button:before {
+            color: rgba(255,255,255,.4);
+            font-size: 10px;
+            opacity: 1;
+        }
+        .casos-slider .slick-dots li.slick-active button:before {
+            color: var(--green);
+        }
+        .casos-slider .slick-prev,
+        .casos-slider .slick-next {
+            width: 38px; height: 38px;
+            z-index: 2;
+        }
+        .casos-slider .slick-prev:before,
+        .casos-slider .slick-next:before {
+            color: var(--green);
+            font-size: 32px;
+        }
+        .casos-slider .slick-prev { left: -10px; }
+        .casos-slider .slick-next { right: -10px; }
+        @media (max-width: 991.98px) {
+            .casos-slider .slick-prev,
+            .casos-slider .slick-next { display: none !important; }
+        }
+
+        /* ----- BUTTON HOVER ANIMATIONS (universal layer) ----- */
+        @media (prefers-reduced-motion: no-preference) {
+            /* Shimmer sweep on primary filled buttons */
+            .btn-hero-primary,
+            .btn-download,
+            .btn-submit,
+            .btn-results-cta,
+            .nav-cta {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+            }
+            .btn-hero-primary::after,
+            .btn-download::after,
+            .btn-submit::after,
+            .btn-results-cta::after,
+            .nav-cta::after {
+                content: '';
+                position: absolute;
+                top: 0; left: -75%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(120deg,
+                    rgba(255,255,255,0) 0%,
+                    rgba(255,255,255,.35) 50%,
+                    rgba(255,255,255,0) 100%);
+                transform: skewX(-22deg);
+                transition: left .55s cubic-bezier(.2,.7,.3,1);
+                pointer-events: none;
+                z-index: 1;
+            }
+            .btn-hero-primary:hover::after,
+            .btn-download:hover::after,
+            .btn-submit:hover:not(:disabled)::after,
+            .btn-results-cta:hover::after,
+            .nav-cta:hover::after { left: 125%; }
+
+            /* Background fill from left for outline buttons */
+            .btn-hero-outline {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+                z-index: 0;
+                transition: color .25s, border-color .25s, transform .25s;
+            }
+            .btn-hero-outline::before {
+                content: '';
+                position: absolute;
+                inset: 0 auto 0 0;
+                width: 0;
+                background: var(--green);
+                transition: width .32s cubic-bezier(.2,.7,.3,1);
+                z-index: -1;
+            }
+            .btn-hero-outline:hover {
+                background: transparent;
+                border-color: var(--green);
+                color: #fff;
+                transform: translateY(-2px);
+            }
+            .btn-hero-outline:hover::before { width: 100%; }
+            .btn-hero-outline i {
+                transition: transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .btn-hero-outline:hover i { transform: translateX(3px); }
+
+            /* Footer link arrows slide on hover */
+            .footer-link {
+                transition: color .2s, transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .footer-link:hover { transform: translateX(4px); }
+            .footer-link i {
+                transition: transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .footer-link:hover i { transform: translateX(2px); }
+
+            /* Contact info icon glow on hover */
+            .contact-info-item {
+                transition: transform .3s cubic-bezier(.2,.7,.3,1);
+            }
+            .contact-info-item:hover { transform: translateX(3px); }
+            .contact-icon {
+                transition: transform .4s cubic-bezier(.2,.7,.3,1), background .3s, box-shadow .3s, color .3s;
+            }
+            .contact-info-item:hover .contact-icon {
+                transform: rotate(360deg);
+                background: var(--green);
+                color: #fff;
+                box-shadow: 0 8px 22px rgba(36,173,67,.4);
+            }
+
+            /* About-feature icon spin on hover */
+            .about-feature-icon {
+                transition: transform .45s cubic-bezier(.2,.7,.3,1), background .3s, color .3s;
+            }
+            .about-feature:hover .about-feature-icon {
+                transform: rotate(360deg);
+                background: var(--green);
+                color: #fff;
+            }
+
+            /* Star-icon (why-section) wiggle on hover */
+            .star-item .star-icon {
+                transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .3s;
+            }
+            .star-item:hover .star-icon {
+                transform: rotate(-8deg) scale(1.08);
+                box-shadow: 0 10px 24px rgba(36,173,67,.35);
+            }
+
+            /* Nav-link underline grow */
+            .site-nav .nav-link:not(.nav-cta) {
+                position: relative;
+            }
+            .site-nav .nav-link:not(.nav-cta)::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: .9rem;
+                width: 0;
+                height: 2px;
+                background: var(--green);
+                transform: translateX(-50%);
+                transition: width .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .site-nav .nav-link:not(.nav-cta):hover::after,
+            .site-nav .nav-link:not(.nav-cta).active::after {
+                width: calc(100% - 1.6rem);
+            }
+        }
+
+        /* Safety — even with reduced motion we keep the lift on hover */
+        .btn-hero-primary:hover,
+        .btn-download:hover,
+        .btn-submit:hover:not(:disabled),
+        .btn-results-cta:hover,
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg site-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="https://grupocorasa.mx">
+                <img src="image/slider/logo.png" alt="Corasa">
+                <span class="brand-text d-none d-md-block">Corasa &nbsp;·&nbsp; <span>Shively Bros</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Acerca De</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#catalogos">Catálogos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-cta" href="#catalogos">
+                            <i class="fa fa-download me-1"></i> Descargar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero position-relative" id="inicio">
+        <div class="container">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
+                    <span class="hero-badge"><i class="fa fa-handshake me-2"></i>Socio Comercial Autorizado · Shively Bros Inc.</span>
+                    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel"
+                         data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <h1>Proveedor Industrial de <em>Soluciones Integrales</em> en Sonora</h1>
+                                <p>Apoyamos a plantas y maquiladoras a reducir costos y errores operativos.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <h1>Suministro confiable, entrega rápida y conexión directa con <em>proveedores en EUA</em></h1>
+                                <p>Mayor disponibilidad, cumplimiento de fechas de entrega y optimización de inventarios.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" role="tablist">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#catalogos" class="btn-hero-outline">
+                            <i class="fa fa-file-pdf me-2"></i>Catálogos
+                        </a>
+                        <a href="#servicios" class="btn-hero-outline">
+                            <i class="fa fa-th-large me-2"></i>Líneas de Productos
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="contact-form-card compact">
+                        <div id="hero-contact-form-success" class="form-alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="hero-contact-form-error"   class="form-alert alert-error"   role="alert"  aria-live="assertive"></div>
+
+                        <form id="hero-contact-form" class="js-contact-form" novalidate
+                              data-success-id="hero-contact-form-success"
+                              data-error-id="hero-contact-form-error">
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label>No completar este campo
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </label>
+                            </div>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-nombre" name="nombre" maxlength="100" required placeholder="Nombre" autocomplete="name">
+                                        <label for="hcf-nombre">Nombre *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-empresa" name="empresa" maxlength="100" required placeholder="Empresa" autocomplete="organization">
+                                        <label for="hcf-empresa">Empresa *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-cargo" name="cargo" maxlength="100" required placeholder="Cargo" autocomplete="organization-title">
+                                        <label for="hcf-cargo">Cargo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="hcf-telefono" name="telefono" maxlength="30" placeholder="Teléfono" autocomplete="tel">
+                                        <label for="hcf-telefono">Teléfono</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="hcf-email" name="email" maxlength="150" required placeholder="correo@empresa.com" autocomplete="email">
+                                        <label for="hcf-email">Email corporativo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="hcf-servicio" name="servicio" required>
+                                            <option value="" selected disabled hidden></option>
+                                            <option value="Filtración Industrial">Filtración Industrial</option>
+                                            <option value="Metrología">Metrología</option>
+                                            <option value="MRO">MRO</option>
+                                            <option value="Herramientas de Corte">Herramientas de Corte</option>
+                                            <option value="Abrasivos">Abrasivos</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <label for="hcf-servicio">Línea de Interés *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="hcf-requerimiento" name="requerimiento" maxlength="600" required placeholder="Mensaje breve" data-req-count-target></textarea>
+                                        <label for="hcf-requerimiento">Mensaje breve *</label>
+                                    </div>
+                                    <span data-req-count style="display:none">0</span>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="g-recaptcha-response" value="">
+
+                            <div class="submit-wrap">
+                                <button type="submit" class="btn-submit">
+                                    <i class="fa fa-paper-plane"></i> Enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS STRIP ===== -->
+    <section class="stats-strip">
+        <div class="container">
+            <div class="stats-logo-row">
+                <div class="stats-logo-wrap">
+                    <img src="image/family-shively-mexico.png" alt="Shively Bros. Mexico" class="stats-logo">
+                </div>
+            </div>
+            <div class="stats-divider-row"></div>
+            <div class="row d-flex align-items-center text-center">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">75+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-block stat-divider"></div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">13</div>
+                        <div class="stat-label">Ubicaciones N. América</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-block stat-divider"></div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Líneas de Servicio</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-block stat-divider"></div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Disponibilidad</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about-section" id="nosotros">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img-wrap">
+                        <img src="image/about.jpg" alt="Shively Bros — manufactura de precisión">
+                        <div class="about-badge">
+                            <div class="num">75</div>
+                            <div class="txt">Años de<br>Experiencia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <p class="section-label">Acerca de Nosotros</p>
+                        <h2 class="section-title">Socios Comerciales<br>de Shively Bros Inc.</h2>
+                        <div class="title-bar"></div>
+                        <p style="color:#555; line-height:1.8;">
+                            Corasa es socio comercial autorizado de <strong>Shively Bros Inc.</strong>, empresa líder en servicios de soporte para la manufactura fundada en Flint, Michigan, con más de 75 años de experiencia y presencia en 13 ubicaciones en América del Norte.
+                        </p>
+                        <p style="color:#555; line-height:1.8; margin-bottom:2rem;">
+                            Ofrecemos soluciones integradas para mejorar la eficiencia operacional de industrias manufactureras en México, respaldados por la trayectoria, tecnología y metodología de Shively Bros.
+                        </p>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa fa-map-marker-alt"></i></div>
+                            <p><strong>13 ubicaciones</strong> en Michigan, Indiana, Nueva York, Ontario y México.</p>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa fa-leaf"></i></div>
+                            <p><strong>Sustentabilidad como principio</strong> — reducción de scrap, regrind y desperdicios en cada proceso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LÍNEAS DE PRODUCTOS ===== -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Catálogo de Productos</p>
+                <h2 class="section-title light">Líneas de Productos</h2>
+                <div class="title-bar center"></div>
+                <p style="color: var(--muted); max-width: 620px; margin: 0 auto; line-height:1.8;">
+                    Cinco líneas especializadas para mantener su planta operando con menor costo y mayor precisión.
+                </p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-filter"></i></div>
+                        <h5>Filtración Industrial</h5>
+                        <p>Soluciones completas de filtración para aire, aceite, gas y procesos críticos. Protegemos su maquinaria de los contaminantes que aceleran el desgaste y comprometen la calidad.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Mayor vida útil de equipos</li>
+                            <li><i class="fa fa-check"></i>Reducción de costos de mantenimiento</li>
+                            <li><i class="fa fa-check"></i>Procesos más limpios y eficientes</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="filtracion-industrial">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-ruler-combined"></i></div>
+                        <h5>Metrología</h5>
+                        <p>Instrumentos de medición y calibración con respaldo técnico certificado. Garantizamos que cada pieza cumpla con la tolerancia que su cliente exige.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Precisión dimensional confiable</li>
+                            <li><i class="fa fa-check"></i>Cumplimiento de tolerancias críticas</li>
+                            <li><i class="fa fa-check"></i>Trazabilidad y soporte técnico</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="metrologia">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-screwdriver-wrench"></i></div>
+                        <h5>MRO</h5>
+                        <p>Consumibles, refacciones y suministros que mantienen su planta operando sin interrupciones. Inventario optimizado para evitar paros costosos.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Continuidad operativa garantizada</li>
+                            <li><i class="fa fa-check"></i>Menos paros no programados</li>
+                            <li><i class="fa fa-check"></i>Suministro confiable y oportuno</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="mro">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-gears"></i></div>
+                        <h5>Herramientas de Corte</h5>
+                        <p>Fresas, brocas, insertos y herramientas de precisión seleccionadas para maximizar el rendimiento por filo y reducir el retrabajo.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Más piezas por herramienta</li>
+                            <li><i class="fa fa-check"></i>Menos retrabajo y scrap</li>
+                            <li><i class="fa fa-check"></i>Mejor acabado superficial</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="herramientas-de-corte">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-compact-disc"></i></div>
+                        <h5>Abrasivos</h5>
+                        <p>Soluciones de desbaste y acabado industrial para cada etapa del proceso. Discos, bandas y consumibles que entregan resultados consistentes.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Acabado superficial de alta calidad</li>
+                            <li><i class="fa fa-check"></i>Menor tasa de defectos</li>
+                            <li><i class="fa fa-check"></i>Mayor productividad por operador</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="abrasivos">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTADOS QUE ENTREGAMOS ===== -->
+    <section class="results-section" id="resultados">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Beneficios Tangibles</p>
+                <h2 class="section-title">Resultados que Entregamos</h2>
+                <div class="title-bar center"></div>
+                <p style="color:#5f6772; max-width:620px; margin:0 auto; line-height:1.8;">
+                    Soluciones para la Continuidad y Eficiencia Operativa.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card">
+                        <div class="result-icon"><i class="fa fa-truck-fast"></i></div>
+                        <h4>Disponibilidad y Cumplimiento</h4>
+                        <p>Entregas a tiempo, sin sorpresas. Cumplimos la fecha que acordamos para que su línea no se detenga.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card featured">
+                        <div class="result-icon"><i class="fa fa-piggy-bank"></i></div>
+                        <h4>Reducción de Costos Operativos</h4>
+                        <p>Inventario optimizado, herramientas reafiladas y control de scrap. Bajamos el costo total de operación atacando las tres palancas a la vez.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card">
+                        <div class="result-icon"><i class="fa fa-gauge-high"></i></div>
+                        <h4>Productividad y Precisión</h4>
+                        <p>Soluciones de filtración, metrología y MRO que garantizan continuidad de proceso y consistencia dimensional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASOS DE ÉXITO (mocked) ===== -->
+    <section class="casos-section" id="casos">
+        <div class="container">
+            <div class="text-center mb-4">
+                <p class="section-label">Voces de la Industria</p>
+                <h2 class="section-title light">Casos de Éxito</h2>
+                <div class="title-bar center"></div>
+                <p class="casos-disclaimer">
+                    Testimonios ilustrativos. Pronto compartiremos casos reales con nuestros clientes.
+                </p>
+            </div>
+            <div class="casos-slider">
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Con Shively Bros redujimos fallas en línea 2 en 23% y mejoramos cumplimiento de entregas.</p>
+                        <p class="case-attrib">— Planta ABC, Hermosillo</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Pasamos de tres paros semanales por falta de consumibles a cero en cuatro meses. El programa MRO valió cada peso.</p>
+                        <p class="case-attrib">— Manufactura XYZ</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">El reafilado de herramientas de corte nos extendió la vida útil un 40% y bajó el costo por pieza un 18%.</p>
+                        <p class="case-attrib">— Proveedor Tier 1, Guaymas</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">La metrología con respaldo técnico nos sacó del bloqueo en una auditoría OEM. Recomendados al 100%.</p>
+                        <p class="case-attrib">— Maquiladora Norte</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Lo que más valoramos: cuando dicen jueves, llega jueves. En México eso vale oro.</p>
+                        <p class="case-attrib">— Planta de Componentes, Empalme</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATALOGS ===== -->
+    <section class="catalogs-section" id="catalogos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Recursos Disponibles</p>
+                <h2 class="section-title">Catálogos y Presentaciones</h2>
+                <div class="title-bar center"></div>
+                <p style="color:#666; max-width:500px; margin:0 auto; line-height:1.8;">
+                    Descargue nuestros catálogos de productos y presentaciones técnicas para conocer el portafolio completo.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-file-pdf catalog-icon"></i>
+                        <h4>Catálogo de Productos</h4>
+                        <p>Portafolio completo de productos y soluciones industriales disponibles a través de nuestra alianza con Shively Bros.</p>
+                        <a href="../assets/Catálogo de Productos.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Descargar Catálogo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-file-pdf catalog-icon"></i>
+                        <h4>Presentación de Filtros</h4>
+                        <p>Soluciones de filtración industrial y línea completa de filtros para procesos de manufactura de alta precisión.</p>
+                        <a href="../assets/Presentación de Filtros.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Descargar Presentación
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-handshake catalog-icon"></i>
+                        <h4>Acuerdos Comerciales</h4>
+                        <p>Listado de marcas con las que contamos con acuerdo comercial directo — la base que nos permite ofrecer precios competitivos en cada categoría.</p>
+                        <a href="../assets/Line Card.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Descargar Lista
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="catalog-card">
+                        <i class="fa fa-file-powerpoint catalog-icon"></i>
+                        <h4>Presentación de Productos</h4>
+                        <p>Presentación visual del portafolio de productos Shively Bros, ideal para compartir con su equipo de compras o dirección.</p>
+                        <a href="../assets/Catálogo de Productos SBM-COR.pdf" target="_blank" class="btn-download">
+                            <i class="fa fa-download"></i> Ver Presentación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                    <div class="why-img-wrap">
+                        <img src="image/choose.jpg" alt="Equipo de trabajo Shively Bros">
+                        <div class="why-badge">
+                            <div class="num">13</div>
+                            <div class="txt">Ubicaciones<br>en N. América</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="why-content">
+                        <p class="section-label">¿Por qué elegirnos?</p>
+                        <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2.1rem);">¿Su proveedor actual<br>le está dando <em style="color:var(--green); font-style:normal;">todo esto</em>?</h2>
+                        <div class="title-bar"></div>
+                        <div class="star-item">
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Si acordamos el día 15, ¡el día 15 lo tendrá!">
+                                <i class="fa fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h6>Fechas de entrega que sí se cumplen</h6>
+                                <p>En México los retrasos son la norma. Con Shively Bros, la fecha acordada es la fecha en que recibe su pedido — sin excusas, sin sorpresas.</p>
+                            </div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Cambiamos el consumible por una opción equivalente y bajamos 18% el costo mensual.">
+                                <i class="fa fa-piggy-bank"></i>
+                            </div>
+                            <div>
+                                <h6>Reducción de costos sin sacrificar calidad</h6>
+                                <p>Gracias a nuestro amplio portafolio de soluciones, encontramos alternativas que reducen su gasto sin comprometer el nivel de calidad que necesita.</p>
+                            </div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Cotizamos el mismo artículo y fuimos 12% más baratos y entregamos antes que el proveedor de siempre.">
+                                <i class="fa fa-tags"></i>
+                            </div>
+                            <div>
+                                <h6>Precios que compiten con cualquier proveedor nacional</h6>
+                                <p>Nuestros acuerdos comerciales directos con múltiples marcas nos permiten cotizar por debajo de lo que espera. Antes de renovar con su proveedor actual, pídanos una cotización.</p>
+                            </div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-icon"
+                                 data-bs-toggle="tooltip"
+                                 data-bs-placement="right"
+                                 data-bs-title="Rediseñamos el esquema de suministro y eliminaron dos horas de paro no programado por semana.">
+                                <i class="fa fa-gear"></i>
+                            </div>
+                            <div>
+                                <h6>Soluciones hechas a la medida de su operación</h6>
+                                <p>No vendemos catálogo — resolvemos problemas. Analizamos su proceso, identificamos oportunidades de mejora y diseñamos una solución específica para su planta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS ===== -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="text-center mb-4">
+                <p class="section-label">Empresas que nos eligen</p>
+            </div>
+        </div>
+        <div class="clients-outer">
+            <div class="clients-track">
+                <!-- Set 1 -->
+                <div class="client-logo-item"><img src="image/clients/amd-plastics.png" alt="AMD Plastics"></div>
+                <div class="client-logo-item"><img src="image/clients/copeland.png" alt="Copeland"></div>
+                <div class="client-logo-item"><img src="image/clients/denso.png" alt="Denso"></div>
+                <div class="client-logo-item"><img src="image/clients/dicastal.png" alt="Dicastal"></div>
+                <div class="client-logo-item"><img src="image/clients/gm.png" alt="General Motors"></div>
+                <div class="client-logo-item"><img src="image/clients/kiriu.png" alt="Kiriu"></div>
+                <div class="client-logo-item"><img src="image/clients/mabe.png" alt="Mabe"></div>
+                <div class="client-logo-item"><img src="image/clients/musashi.png" alt="Musashi"></div>
+                <div class="client-logo-item"><img src="image/clients/nhk-spring-mexico.png" alt="NHK Spring Mexico"></div>
+                <div class="client-logo-item"><img src="image/clients/nidec-corporation.png" alt="Nidec Corporation"></div>
+                <div class="client-logo-item"><img src="image/clients/onnera-group.png" alt="Onnera Group"></div>
+                <div class="client-logo-item"><img src="image/clients/otscon.png" alt="Otscon"></div>
+                <div class="client-logo-item"><img src="image/clients/purem.png" alt="Purem"></div>
+                <div class="client-logo-item"><img src="image/clients/stellantis.png" alt="Stellantis"></div>
+                <div class="client-logo-item"><img src="image/clients/toyoda-gosei.png" alt="Toyoda Gosei"></div>
+                <div class="client-logo-item"><img src="image/clients/tti.png" alt="TTI"></div>
+                <!-- Set 2 — duplicate for seamless infinite loop -->
+                <div class="client-logo-item"><img src="image/clients/amd-plastics.png" alt="AMD Plastics"></div>
+                <div class="client-logo-item"><img src="image/clients/copeland.png" alt="Copeland"></div>
+                <div class="client-logo-item"><img src="image/clients/denso.png" alt="Denso"></div>
+                <div class="client-logo-item"><img src="image/clients/dicastal.png" alt="Dicastal"></div>
+                <div class="client-logo-item"><img src="image/clients/gm.png" alt="General Motors"></div>
+                <div class="client-logo-item"><img src="image/clients/kiriu.png" alt="Kiriu"></div>
+                <div class="client-logo-item"><img src="image/clients/mabe.png" alt="Mabe"></div>
+                <div class="client-logo-item"><img src="image/clients/musashi.png" alt="Musashi"></div>
+                <div class="client-logo-item"><img src="image/clients/nhk-spring-mexico.png" alt="NHK Spring Mexico"></div>
+                <div class="client-logo-item"><img src="image/clients/nidec-corporation.png" alt="Nidec Corporation"></div>
+                <div class="client-logo-item"><img src="image/clients/onnera-group.png" alt="Onnera Group"></div>
+                <div class="client-logo-item"><img src="image/clients/otscon.png" alt="Otscon"></div>
+                <div class="client-logo-item"><img src="image/clients/purem.png" alt="Purem"></div>
+                <div class="client-logo-item"><img src="image/clients/stellantis.png" alt="Stellantis"></div>
+                <div class="client-logo-item"><img src="image/clients/toyoda-gosei.png" alt="Toyoda Gosei"></div>
+                <div class="client-logo-item"><img src="image/clients/tti.png" alt="TTI"></div>
+                <div class="client-logo-item"><img src="image/clients/cemex.png" alt="Cemex"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label" style="color:var(--green)">Hablemos</p>
+                <h2 class="section-title light">Contáctenos</h2>
+                <div class="title-bar center"></div>
+            </div>
+
+            <!-- Row 1: form, centered -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="contact-form-card">
+                        <h3>Cuéntenos qué necesita</h3>
+                        <p class="form-intro">Complete el formulario y un representante le contactará a la brevedad.</p>
+
+                        <div id="contact-form-success" class="form-alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="contact-form-error"   class="form-alert alert-error"   role="alert"  aria-live="assertive"></div>
+
+                        <form id="contact-form" class="js-contact-form" novalidate
+                              data-success-id="contact-form-success"
+                              data-error-id="contact-form-error">
+                            <!-- Honeypot: bots fill this; humans don't -->
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label>No completar este campo
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </label>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-nombre" name="nombre" maxlength="100" required placeholder="Nombre completo" autocomplete="name">
+                                        <label for="cf-nombre">Nombre completo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-empresa" name="empresa" maxlength="100" required placeholder="Empresa" autocomplete="organization">
+                                        <label for="cf-empresa">Empresa *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cf-cargo" name="cargo" maxlength="100" required placeholder="Cargo" autocomplete="organization-title">
+                                        <label for="cf-cargo">Cargo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="cf-email" name="email" maxlength="150" required placeholder="correo@empresa.com" autocomplete="email">
+                                        <label for="cf-email">Email corporativo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="cf-telefono" name="telefono" maxlength="30" placeholder="Teléfono / WhatsApp" autocomplete="tel">
+                                        <label for="cf-telefono">Teléfono / WhatsApp (opcional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="cf-servicio" name="servicio" required>
+                                            <option value="" selected disabled hidden></option>
+                                            <option value="Filtración Industrial">Filtración Industrial</option>
+                                            <option value="Metrología">Metrología</option>
+                                            <option value="MRO">MRO</option>
+                                            <option value="Herramientas de Corte">Herramientas de Corte</option>
+                                            <option value="Abrasivos">Abrasivos</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <label for="cf-servicio">Línea de Interés *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="cf-requerimiento" name="requerimiento" maxlength="2000" required placeholder="Describa su requerimiento"></textarea>
+                                        <label for="cf-requerimiento">Requerimiento Específico *</label>
+                                    </div>
+                                    <div class="form-helper d-flex justify-content-between gap-3">
+                                        <span>Describa volúmenes, productos o tiempos específicos para una propuesta más precisa.</span>
+                                        <span class="form-helper-counter"><span id="cf-req-count" data-req-count>0</span>/2000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="g-recaptcha-response" value="">
+
+                            <div class="submit-wrap">
+                                <button type="submit" class="btn-submit">
+                                    <i class="fa fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </div>
+
+                            <p class="recaptcha-disclosure">
+                                Este sitio está protegido por reCAPTCHA y se aplican la
+                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad</a> y los
+                                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de Servicio</a> de Google.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: contact info + maps (original layout) -->
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-3">
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+                        <div>
+                            <div class="label">Dirección</div>
+                            <a href="https://www.google.com/maps/place/C.+Leandro+P.+Gaxiola+117,+Olivares,+83180+Hermosillo,+Son." target="_blank">
+                                Leandro P. Gaxiola 117,<br>Col. Olivares, Hermosillo, Sonora, México
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+                        <div>
+                            <div class="label">Correo Electrónico</div>
+                            <a href="mailto:infoshivelybros@grupocorasa.mx">infoshivelybros@grupocorasa.mx</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fa fa-phone"></i></div>
+                        <div>
+                            <div class="label">Teléfono</div>
+                            <a href="tel:6622199434">(662) 219 9434</a><br>
+                            <a href="tel:6622161045">(662) 216 1045</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <div class="label">WhatsApp</div>
+                            <a href="https://wa.me/526624197556">(662) 419 7556</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <p class="map-label">Representante Comercial Sonora</p>
+                    <div class="map-wrap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217.8838816721484!2d-110.98412891384214!3d29.10148571026169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce841d0f0e6d91%3A0xa63438f346a1847a!2sComercializadora%20Ortega%20y%20Accionistas%2C%20S.A.%20de%20C.V.!5e0!3m2!1sen!2smx!4v1694027272784!5m2!1sen!2smx"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <p class="map-label">Filial México — Shively Bros Inc.</p>
+                    <div class="map-wrap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.6694710337715!2d-100.97347152638896!3d25.482710077528214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868812d7133dfddf%3A0x2e1495a218228685!2sShively%20Bros.!5e0!3m2!1sen!2smx!4v1774312276155!5m2!1sen!2smx"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="image/slider/logo.png" alt="Corasa" height="48" class="mb-3">
+                    <p class="footer-desc">
+                        Corasa es socio comercial autorizado de Shively Bros Inc. — proveedor líder de servicios de soporte para la manufactura con 75 años de experiencia en América del Norte.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <p class="footer-title">Líneas de Productos</p>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Filtración Industrial</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Metrología</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> MRO</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Herramientas de Corte</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Abrasivos</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <p class="footer-title">Contacto</p>
+                    <a class="footer-link" href="mailto:infoshivelybros@grupocorasa.mx"><i class="fa fa-envelope"></i> infoshivelybros@grupocorasa.mx</a>
+                    <a class="footer-link" href="tel:6622199434"><i class="fa fa-phone"></i> (662) 219 9434</a>
+                    <a class="footer-link" href="tel:6622161045"><i class="fa fa-phone"></i> (662) 216 1045</a>
+                    <a class="footer-link" href="https://wa.me/526624197556"><i class="fa-brands fa-whatsapp"></i> (662) 419 7556</a>
+                    <a class="footer-link" href="https://grupocorasa.mx"><i class="fa fa-globe"></i> grupocorasa.mx</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="mb-0">
+                            &copy; <script>document.write(new Date().getFullYear())</script>
+                            <a href="https://grupocorasa.mx">Comercializadora Ortega y Accionistas, S.A. de C.V.</a>
+                            &nbsp;·&nbsp; Todos los derechos reservados.
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-start">
+                        <div class="terms-links">
+                            <a href="../terms.html">Terms of Use</a>
+                            | <a href="../privacy.html">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // Smooth active link highlight on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.site-nav .nav-link[href^="#"]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 100) current = s.id;
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+
+        // Bootstrap tooltips
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            .forEach(el => new bootstrap.Tooltip(el));
+
+        // Casos de Éxito Slick carousel
+        if (window.jQuery && jQuery.fn.slick) {
+            jQuery('.casos-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                infinite: true,
+                arrows: true,
+                dots: true,
+                pauseOnHover: true,
+                responsive: [
+                    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+                    { breakpoint: 768,  settings: { slidesToShow: 1, arrows: false } }
+                ]
+            });
+        }
+    </script>
+
+    <!-- Contact form: reCAPTCHA v3 + handler.
+         Replace the TODO_* placeholders with real keys / Google Ads conversion target. -->
+    <script>
+        window.__SHIVELY_FORM_CFG = {
+            recaptchaSiteKey: '6LcZ_tAsAAAAAMym7IKUgttUKtc3cc_sa4d_OWjQ',
+            adsConversionId:  'AW-TODO_SHIVELY/TODO_CONVERSION_LABEL'
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcZ_tAsAAAAAMym7IKUgttUKtc3cc_sa4d_OWjQ"></script>
+    <script src="js/contact-form-multi.js"></script>
+
+</body>
+</html>
