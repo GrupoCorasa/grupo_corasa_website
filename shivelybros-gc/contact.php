@@ -56,9 +56,16 @@ $requerimiento = trim((string)($_POST['requerimiento'] ?? ''));
 $recaptchaTok  = trim((string)($_POST['g-recaptcha-response'] ?? ''));
 
 $ALLOWED_SERVICES = [
+    // Legacy services (still on live index.html)
     'Gestión de Inventario',
     'Servicios de Procura',
     'Gestión de Regrind & Retep',
+    // New product lines (CHANGE-EXAMPLE.html demo)
+    'Filtración Industrial',
+    'Metrología',
+    'MRO',
+    'Herramientas de Corte',
+    'Abrasivos',
     'Otro',
 ];
 
