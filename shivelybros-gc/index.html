@@ -21,6 +21,9 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Slick (used by Casos de Éxito carousel) -->
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/slick-theme.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -771,6 +774,500 @@
         @media (max-width: 575.98px) {
             .contact-form-card { padding: 1.75rem 1.25rem; }
         }
+
+        /* ========================================================
+           CHANGE-EXAMPLE additions (staging demo only)
+           ======================================================== */
+
+        /* ----- HERO carousel + split layout ----- */
+        .hero {
+            min-height: 100vh;
+            padding: 7.5rem 0 4rem;
+        }
+        .hero h1 {
+            font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.6rem;
+            max-width: 100%;
+        }
+        .hero-carousel { position: relative; }
+        .hero-carousel .carousel-item {
+            transition: opacity .9s ease-in-out;
+        }
+        .hero-carousel .carousel-indicators {
+            position: relative;
+            margin: 1.4rem 0 0;
+            justify-content: flex-start;
+        }
+        .hero-carousel .carousel-indicators [data-bs-target] {
+            width: 32px;
+            height: 4px;
+            background: rgba(255,255,255,.35);
+            border: 0;
+            border-radius: 2px;
+            opacity: 1;
+            transition: background .3s, transform .3s;
+        }
+        .hero-carousel .carousel-indicators .active {
+            background: var(--green);
+            transform: scaleX(1.25);
+            transform-origin: left center;
+        }
+        @media (max-width: 991.98px) {
+            .hero { padding: 6rem 0 3rem; min-height: auto; }
+            .hero h1 { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+        }
+
+        /* ----- Compact contact form inside the hero ----- */
+        .contact-form-card.compact {
+            padding: 1.5rem 1.4rem;
+            border-radius: 12px;
+            box-shadow: 0 18px 48px rgba(0,0,0,.35);
+        }
+        .contact-form-card.compact h3 {
+            font-size: 1.2rem;
+            margin-bottom: .25rem;
+        }
+        .contact-form-card.compact .form-intro {
+            font-size: .82rem;
+            margin-bottom: 1rem;
+        }
+        .contact-form-card.compact .form-floating > .form-control,
+        .contact-form-card.compact .form-floating > .form-select {
+            min-height: 52px;
+            padding: 1.25rem .75rem .35rem;
+            font-size: .88rem;
+        }
+        .contact-form-card.compact .form-floating > textarea.form-control {
+            min-height: 88px;
+            padding-top: 1.45rem;
+        }
+        .contact-form-card.compact .form-floating > label {
+            font-size: .85rem;
+            padding: .85rem .75rem;
+        }
+        .contact-form-card.compact .submit-wrap { margin-top: 1rem; }
+        .contact-form-card.compact .btn-submit {
+            padding: .8rem 1.2rem;
+            font-size: .92rem;
+        }
+        .contact-form-card.compact .form-helper { display: none; }
+        .contact-form-card.compact .recaptcha-disclosure {
+            font-size: .68rem;
+            margin-top: .85rem;
+        }
+        @media (max-width: 991.98px) {
+            .contact-form-card.compact { margin-top: 2rem; }
+        }
+
+        /* ----- SERVICES additions: benefits list + Ver más CTA ----- */
+        .srv-card { display: flex; flex-direction: column; }
+        .srv-icon {
+            transition: transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+        }
+        .srv-card:hover .srv-icon {
+            transform: rotate(15deg) scale(1.08);
+            box-shadow: 0 12px 28px rgba(36,173,67,.35);
+        }
+        .srv-benefits {
+            list-style: none;
+            padding: 0;
+            margin: .5rem 0 1.4rem;
+            text-align: left;
+        }
+        .srv-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: .55rem;
+            color: rgba(255,255,255,.78);
+            font-size: .82rem;
+            line-height: 1.55;
+            margin-bottom: .45rem;
+        }
+        .srv-benefits li i {
+            color: var(--green);
+            font-size: .72rem;
+            margin-top: .35rem;
+            flex-shrink: 0;
+        }
+        .srv-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            margin-top: auto;
+            padding: .65rem 1.2rem;
+            border: 1.5px solid var(--green);
+            color: var(--green);
+            background: transparent;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            overflow: hidden;
+            transition: color .25s, border-color .25s;
+            z-index: 0;
+        }
+        .srv-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 0;
+            background: var(--green);
+            transition: width .32s cubic-bezier(.2,.7,.3,1);
+            z-index: -1;
+        }
+        .srv-cta:hover {
+            color: #fff;
+            border-color: var(--green);
+        }
+        .srv-cta:hover::before { width: 100%; }
+        .srv-cta i {
+            transition: transform .25s cubic-bezier(.2,.7,.3,1);
+        }
+        .srv-cta:hover i { transform: translateX(4px); }
+
+        /* ----- RESULTADOS QUE ENTREGAMOS section ----- */
+        .results-section {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .results-section .row { align-items: stretch; }
+        .result-card {
+            position: relative;
+            height: 100%;
+            background: #fff;
+            border-radius: 14px;
+            padding: 2.4rem 1.8rem;
+            box-shadow: 0 8px 28px rgba(0,0,0,.08);
+            border-top: 4px solid transparent;
+            text-align: center;
+            transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .result-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 44px rgba(0,0,0,.14);
+        }
+        .result-icon {
+            width: 78px; height: 78px;
+            border-radius: 50%;
+            background: rgba(36,173,67,.12);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.85rem;
+            margin-bottom: 1.2rem;
+            transition: transform .45s cubic-bezier(.2,.7,.3,1), background .35s, color .35s;
+        }
+        .result-card:hover .result-icon {
+            transform: rotate(-12deg) scale(1.08);
+        }
+        .result-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: .8rem;
+        }
+        .result-card p {
+            color: #5f6772;
+            font-size: .92rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .result-card.featured {
+            border-top-color: var(--green);
+            padding: 3rem 2.2rem;
+            box-shadow: 0 24px 60px rgba(36,173,67,.22);
+            background: linear-gradient(180deg, #ffffff 0%, #f6fbf7 100%);
+        }
+        .result-card.featured h4 { font-size: 1.4rem; }
+        .result-card.featured .result-icon {
+            width: 92px; height: 92px;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%);
+            color: #fff;
+            box-shadow: 0 12px 28px rgba(36,173,67,.35);
+        }
+        @media (min-width: 992px) {
+            .result-card.featured { transform: scale(1.04); }
+            .result-card.featured:hover { transform: scale(1.04) translateY(-6px); }
+        }
+        .results-cta-wrap { text-align: center; margin-top: 3rem; }
+        .btn-results-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            background: var(--green);
+            color: #fff;
+            border: 0;
+            padding: .95rem 2.2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            box-shadow: 0 12px 28px rgba(36,173,67,.32);
+            position: relative;
+            overflow: hidden;
+            transition: background .25s, transform .25s, box-shadow .25s;
+            z-index: 0;
+        }
+        .btn-results-cta i {
+            transition: transform .25s cubic-bezier(.2,.7,.3,1);
+        }
+        .btn-results-cta:hover { color: #fff; background: var(--green-dk); transform: translateY(-3px); box-shadow: 0 18px 36px rgba(36,173,67,.45); }
+        .btn-results-cta:hover i { transform: translateX(4px); }
+
+        /* ----- CASOS DE ÉXITO section ----- */
+        .casos-section {
+            padding: 6rem 0;
+            background: var(--dark2);
+            position: relative;
+        }
+        .casos-disclaimer {
+            text-align: center;
+            color: rgba(255,255,255,.55);
+            font-size: .82rem;
+            font-style: italic;
+            margin: -.5rem auto 2.5rem;
+            max-width: 560px;
+        }
+        .casos-slider { margin: 0 -.75rem; }
+        .casos-slider .slick-slide { padding: .5rem .75rem; height: auto; }
+        .casos-slider .slick-track {
+            display: flex !important;
+            align-items: stretch;
+        }
+        .casos-slider .slick-slide > div { height: 100%; }
+        .case-card {
+            position: relative;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.8rem 1.6rem 1.6rem;
+            border-left: 4px solid var(--green);
+            box-shadow: 0 12px 32px rgba(0,0,0,.28);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s;
+        }
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 48px rgba(0,0,0,.36);
+        }
+        .case-stars {
+            color: #ffb703;
+            font-size: .82rem;
+            margin-bottom: .85rem;
+            letter-spacing: 1.5px;
+        }
+        .case-quote {
+            color: #2e3640;
+            font-size: .95rem;
+            font-style: italic;
+            line-height: 1.65;
+            margin: 0 0 1.2rem;
+            flex: 1;
+        }
+        .case-quote::before {
+            content: '\201C';
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            color: var(--green);
+            line-height: .6;
+            margin-right: .25rem;
+            vertical-align: -.35rem;
+        }
+        .case-attrib {
+            font-family: 'Oswald', sans-serif;
+            font-size: .82rem;
+            color: var(--green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+            padding-top: .8rem;
+            border-top: 1px solid rgba(0,0,0,.06);
+        }
+        .casos-slider .slick-dots {
+            position: relative;
+            bottom: auto;
+            margin-top: 2rem;
+        }
+        .casos-slider .slick-dots li button:before {
+            color: rgba(255,255,255,.4);
+            font-size: 10px;
+            opacity: 1;
+        }
+        .casos-slider .slick-dots li.slick-active button:before {
+            color: var(--green);
+        }
+        .casos-slider .slick-prev,
+        .casos-slider .slick-next {
+            width: 38px; height: 38px;
+            z-index: 2;
+        }
+        .casos-slider .slick-prev:before,
+        .casos-slider .slick-next:before {
+            color: var(--green);
+            font-size: 32px;
+        }
+        .casos-slider .slick-prev { left: -10px; }
+        .casos-slider .slick-next { right: -10px; }
+        @media (max-width: 991.98px) {
+            .casos-slider .slick-prev,
+            .casos-slider .slick-next { display: none !important; }
+        }
+
+        /* ----- BUTTON HOVER ANIMATIONS (universal layer) ----- */
+        @media (prefers-reduced-motion: no-preference) {
+            /* Shimmer sweep on primary filled buttons */
+            .btn-hero-primary,
+            .btn-download,
+            .btn-submit,
+            .btn-results-cta,
+            .nav-cta {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+            }
+            .btn-hero-primary::after,
+            .btn-download::after,
+            .btn-submit::after,
+            .btn-results-cta::after,
+            .nav-cta::after {
+                content: '';
+                position: absolute;
+                top: 0; left: -75%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(120deg,
+                    rgba(255,255,255,0) 0%,
+                    rgba(255,255,255,.35) 50%,
+                    rgba(255,255,255,0) 100%);
+                transform: skewX(-22deg);
+                transition: left .55s cubic-bezier(.2,.7,.3,1);
+                pointer-events: none;
+                z-index: 1;
+            }
+            .btn-hero-primary:hover::after,
+            .btn-download:hover::after,
+            .btn-submit:hover:not(:disabled)::after,
+            .btn-results-cta:hover::after,
+            .nav-cta:hover::after { left: 125%; }
+
+            /* Background fill from left for outline buttons */
+            .btn-hero-outline {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+                z-index: 0;
+                transition: color .25s, border-color .25s, transform .25s;
+            }
+            .btn-hero-outline::before {
+                content: '';
+                position: absolute;
+                inset: 0 auto 0 0;
+                width: 0;
+                background: var(--green);
+                transition: width .32s cubic-bezier(.2,.7,.3,1);
+                z-index: -1;
+            }
+            .btn-hero-outline:hover {
+                background: transparent;
+                border-color: var(--green);
+                color: #fff;
+                transform: translateY(-2px);
+            }
+            .btn-hero-outline:hover::before { width: 100%; }
+            .btn-hero-outline i {
+                transition: transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .btn-hero-outline:hover i { transform: translateX(3px); }
+
+            /* Footer link arrows slide on hover */
+            .footer-link {
+                transition: color .2s, transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .footer-link:hover { transform: translateX(4px); }
+            .footer-link i {
+                transition: transform .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .footer-link:hover i { transform: translateX(2px); }
+
+            /* Contact info icon glow on hover */
+            .contact-info-item {
+                transition: transform .3s cubic-bezier(.2,.7,.3,1);
+            }
+            .contact-info-item:hover { transform: translateX(3px); }
+            .contact-icon {
+                transition: transform .4s cubic-bezier(.2,.7,.3,1), background .3s, box-shadow .3s, color .3s;
+            }
+            .contact-info-item:hover .contact-icon {
+                transform: rotate(360deg);
+                background: var(--green);
+                color: #fff;
+                box-shadow: 0 8px 22px rgba(36,173,67,.4);
+            }
+
+            /* About-feature icon spin on hover */
+            .about-feature-icon {
+                transition: transform .45s cubic-bezier(.2,.7,.3,1), background .3s, color .3s;
+            }
+            .about-feature:hover .about-feature-icon {
+                transform: rotate(360deg);
+                background: var(--green);
+                color: #fff;
+            }
+
+            /* Star-icon (why-section) wiggle on hover */
+            .star-item .star-icon {
+                transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .3s;
+            }
+            .star-item:hover .star-icon {
+                transform: rotate(-8deg) scale(1.08);
+                box-shadow: 0 10px 24px rgba(36,173,67,.35);
+            }
+
+            /* Nav-link underline grow */
+            .site-nav .nav-link:not(.nav-cta) {
+                position: relative;
+            }
+            .site-nav .nav-link:not(.nav-cta)::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: .9rem;
+                width: 0;
+                height: 2px;
+                background: var(--green);
+                transform: translateX(-50%);
+                transition: width .25s cubic-bezier(.2,.7,.3,1);
+            }
+            .site-nav .nav-link:not(.nav-cta):hover::after,
+            .site-nav .nav-link:not(.nav-cta).active::after {
+                width: calc(100% - 1.6rem);
+            }
+        }
+
+        /* Safety — even with reduced motion we keep the lift on hover */
+        .btn-hero-primary:hover,
+        .btn-download:hover,
+        .btn-submit:hover:not(:disabled),
+        .btn-results-cta:hover,
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -806,21 +1303,115 @@
     <!-- ===== HERO ===== -->
     <section class="hero position-relative" id="inicio">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
                     <span class="hero-badge"><i class="fa fa-handshake me-2"></i>Socio Comercial Autorizado · Shively Bros Inc.</span>
-                    <h1>Soporte para la<br><em>Manufactura</em><br>en México</h1>
-                    <p>Corasa lleva la experiencia de 75 años y 13 ubicaciones de Shively Bros a la industria manufacturera de México — soluciones integradas para reducir costos, mejorar calidad y maximizar productividad.</p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel"
+                         data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <h1>Proveedor Industrial de <em>Soluciones Integrales</em> en Sonora</h1>
+                                <p>Apoyamos a plantas y maquiladoras a reducir costos y errores operativos.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <h1>Suministro confiable, entrega rápida y conexión directa con <em>proveedores en EUA</em></h1>
+                                <p>Mayor disponibilidad, cumplimiento de fechas de entrega y optimización de inventarios.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" role="tablist">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
                         <a href="#catalogos" class="btn-hero-outline">
                             <i class="fa fa-file-pdf me-2"></i>Catálogos
                         </a>
+                        <a href="#servicios" class="btn-hero-outline">
+                            <i class="fa fa-th-large me-2"></i>Líneas de Productos
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="contact-form-card compact">
+                        <div id="hero-contact-form-success" class="form-alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="hero-contact-form-error"   class="form-alert alert-error"   role="alert"  aria-live="assertive"></div>
+
+                        <form id="hero-contact-form" class="js-contact-form" novalidate
+                              data-success-id="hero-contact-form-success"
+                              data-error-id="hero-contact-form-error">
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label>No completar este campo
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </label>
+                            </div>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-nombre" name="nombre" maxlength="100" required placeholder="Nombre" autocomplete="name">
+                                        <label for="hcf-nombre">Nombre *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-empresa" name="empresa" maxlength="100" required placeholder="Empresa" autocomplete="organization">
+                                        <label for="hcf-empresa">Empresa *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="hcf-cargo" name="cargo" maxlength="100" required placeholder="Cargo" autocomplete="organization-title">
+                                        <label for="hcf-cargo">Cargo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="hcf-telefono" name="telefono" maxlength="30" placeholder="Teléfono" autocomplete="tel">
+                                        <label for="hcf-telefono">Teléfono</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="hcf-email" name="email" maxlength="150" required placeholder="correo@empresa.com" autocomplete="email">
+                                        <label for="hcf-email">Email corporativo *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="hcf-servicio" name="servicio" required>
+                                            <option value="" selected disabled hidden></option>
+                                            <option value="Filtración Industrial">Filtración Industrial</option>
+                                            <option value="Metrología">Metrología</option>
+                                            <option value="MRO">MRO</option>
+                                            <option value="Herramientas de Corte">Herramientas de Corte</option>
+                                            <option value="Abrasivos">Abrasivos</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <label for="hcf-servicio">Línea de Interés *</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="hcf-requerimiento" name="requerimiento" maxlength="600" required placeholder="Mensaje breve" data-req-count-target></textarea>
+                                        <label for="hcf-requerimiento">Mensaje breve *</label>
+                                    </div>
+                                    <span data-req-count style="display:none">0</span>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="g-recaptcha-response" value="">
+
+                            <div class="submit-wrap">
+                                <button type="submit" class="btn-submit">
+                                    <i class="fa fa-paper-plane"></i> Enviar
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-scroll">
-            Explorar<i class="fa fa-chevron-down"></i>
         </div>
     </section>
 
@@ -903,37 +1494,184 @@
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- ===== LÍNEAS DE PRODUCTOS ===== -->
     <section class="services-section" id="servicios">
         <div class="container">
             <div class="text-center mb-5">
-                <p class="section-label">Lo que Ofrecemos</p>
-                <h2 class="section-title light">Nuestros Servicios</h2>
+                <p class="section-label">Catálogo de Productos</p>
+                <h2 class="section-title light">Líneas de Productos</h2>
                 <div class="title-bar center"></div>
-                <p style="color: var(--muted); max-width: 560px; margin: 0 auto; line-height:1.8;">
-                    Portafolio completo de servicios de soporte para la manufactura, diseñados para reducir costos y aumentar la productividad de su planta.
+                <p style="color: var(--muted); max-width: 620px; margin: 0 auto; line-height:1.8;">
+                    Cinco líneas especializadas para mantener su planta operando con menor costo y mayor precisión.
+                </p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-filter"></i></div>
+                        <h5>Filtración Industrial</h5>
+                        <p>Soluciones completas de filtración para aire, aceite, gas y procesos críticos. Protegemos su maquinaria de los contaminantes que aceleran el desgaste y comprometen la calidad.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Mayor vida útil de equipos</li>
+                            <li><i class="fa fa-check"></i>Reducción de costos de mantenimiento</li>
+                            <li><i class="fa fa-check"></i>Procesos más limpios y eficientes</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="filtracion-industrial">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-ruler-combined"></i></div>
+                        <h5>Metrología</h5>
+                        <p>Instrumentos de medición y calibración con respaldo técnico certificado. Garantizamos que cada pieza cumpla con la tolerancia que su cliente exige.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Precisión dimensional confiable</li>
+                            <li><i class="fa fa-check"></i>Cumplimiento de tolerancias críticas</li>
+                            <li><i class="fa fa-check"></i>Trazabilidad y soporte técnico</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="metrologia">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-screwdriver-wrench"></i></div>
+                        <h5>MRO</h5>
+                        <p>Consumibles, refacciones y suministros que mantienen su planta operando sin interrupciones. Inventario optimizado para evitar paros costosos.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Continuidad operativa garantizada</li>
+                            <li><i class="fa fa-check"></i>Menos paros no programados</li>
+                            <li><i class="fa fa-check"></i>Suministro confiable y oportuno</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="mro">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-gears"></i></div>
+                        <h5>Herramientas de Corte</h5>
+                        <p>Fresas, brocas, insertos y herramientas de precisión seleccionadas para maximizar el rendimiento por filo y reducir el retrabajo.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Más piezas por herramienta</li>
+                            <li><i class="fa fa-check"></i>Menos retrabajo y scrap</li>
+                            <li><i class="fa fa-check"></i>Mejor acabado superficial</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="herramientas-de-corte">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="srv-card">
+                        <div class="srv-icon"><i class="fa fa-compact-disc"></i></div>
+                        <h5>Abrasivos</h5>
+                        <p>Soluciones de desbaste y acabado industrial para cada etapa del proceso. Discos, bandas y consumibles que entregan resultados consistentes.</p>
+                        <ul class="srv-benefits">
+                            <li><i class="fa fa-check"></i>Acabado superficial de alta calidad</li>
+                            <li><i class="fa fa-check"></i>Menor tasa de defectos</li>
+                            <li><i class="fa fa-check"></i>Mayor productividad por operador</li>
+                        </ul>
+                        <a href="#" class="srv-cta" data-line="abrasivos">Ver más <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTADOS QUE ENTREGAMOS ===== -->
+    <section class="results-section" id="resultados">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Beneficios Tangibles</p>
+                <h2 class="section-title">Resultados que Entregamos</h2>
+                <div class="title-bar center"></div>
+                <p style="color:#5f6772; max-width:620px; margin:0 auto; line-height:1.8;">
+                    Soluciones para la Continuidad y Eficiencia Operativa.
                 </p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-boxes-stacked"></i></div>
-                        <h5>Gestión de Inventario</h5>
-                        <p>Administración integral de inventario y cadena de suministro con soluciones de punto de uso y vending automatizado para su planta.</p>
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card">
+                        <div class="result-icon"><i class="fa fa-truck-fast"></i></div>
+                        <h4>Disponibilidad y Cumplimiento</h4>
+                        <p>Entregas a tiempo, sin sorpresas. Cumplimos la fecha que acordamos para que su línea no se detenga.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-handshake"></i></div>
-                        <h5>Servicios de Procura</h5>
-                        <p>Adquisición estratégica de herramientas, abrasivos y consumibles industriales bajo un modelo de socio integral, no solo proveedor.</p>
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card featured">
+                        <div class="result-icon"><i class="fa fa-piggy-bank"></i></div>
+                        <h4>Reducción de Costos Operativos</h4>
+                        <p>Inventario optimizado, herramientas reafiladas y control de scrap. Bajamos el costo total de operación atacando las tres palancas a la vez.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="srv-card">
-                        <div class="srv-icon"><i class="fa fa-recycle"></i></div>
-                        <h5>Gestión de Regrind & Retep</h5>
-                        <p>Programas de regrind y reafilado de herramientas de corte para maximizar su vida útil, reducir costos de reposición y minimizar desperdicios.</p>
+                <div class="col-lg-4 col-md-12">
+                    <div class="result-card">
+                        <div class="result-icon"><i class="fa fa-gauge-high"></i></div>
+                        <h4>Productividad y Precisión</h4>
+                        <p>Soluciones de filtración, metrología y MRO que garantizan continuidad de proceso y consistencia dimensional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASOS DE ÉXITO (mocked) ===== -->
+    <section class="casos-section" id="casos">
+        <div class="container">
+            <div class="text-center mb-4">
+                <p class="section-label">Voces de la Industria</p>
+                <h2 class="section-title light">Casos de Éxito</h2>
+                <div class="title-bar center"></div>
+                <p class="casos-disclaimer">
+                    Testimonios ilustrativos. Pronto compartiremos casos reales con nuestros clientes.
+                </p>
+            </div>
+            <div class="casos-slider">
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Con Shively Bros redujimos fallas en línea 2 en 23% y mejoramos cumplimiento de entregas.</p>
+                        <p class="case-attrib">— Planta ABC, Hermosillo</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Pasamos de tres paros semanales por falta de consumibles a cero en cuatro meses. El programa MRO valió cada peso.</p>
+                        <p class="case-attrib">— Manufactura XYZ</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">El reafilado de herramientas de corte nos extendió la vida útil un 40% y bajó el costo por pieza un 18%.</p>
+                        <p class="case-attrib">— Proveedor Tier 1, Guaymas</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">La metrología con respaldo técnico nos sacó del bloqueo en una auditoría OEM. Recomendados al 100%.</p>
+                        <p class="case-attrib">— Maquiladora Norte</p>
+                    </div>
+                </div>
+                <!-- MOCK TESTIMONIAL — replace with real client quote -->
+                <div>
+                    <div class="case-card">
+                        <div class="case-stars" aria-hidden="true">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="case-quote">Lo que más valoramos: cuando dicen jueves, llega jueves. En México eso vale oro.</p>
+                        <p class="case-attrib">— Planta de Componentes, Empalme</p>
                     </div>
                 </div>
             </div>
@@ -1018,7 +1756,7 @@
                             <div class="star-icon"
                                  data-bs-toggle="tooltip"
                                  data-bs-placement="right"
-                                 data-bs-title="Si acordamos el día 15, ¡el día 15 lo tienes!">
+                                 data-bs-title="Si acordamos el día 15, ¡el día 15 lo tendrá!">
                                 <i class="fa fa-calendar-check"></i>
                             </div>
                             <div>
@@ -1121,7 +1859,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <p class="section-label" style="color:var(--green)">Hablemos</p>
-                <h2 class="section-title light">Contáctanos</h2>
+                <h2 class="section-title light">Contáctenos</h2>
                 <div class="title-bar center"></div>
             </div>
 
@@ -1135,7 +1873,9 @@
                         <div id="contact-form-success" class="form-alert alert-success" role="status" aria-live="polite"></div>
                         <div id="contact-form-error"   class="form-alert alert-error"   role="alert"  aria-live="assertive"></div>
 
-                        <form id="contact-form" novalidate>
+                        <form id="contact-form" class="js-contact-form" novalidate
+                              data-success-id="contact-form-success"
+                              data-error-id="contact-form-error">
                             <!-- Honeypot: bots fill this; humans don't -->
                             <div class="form-honeypot" aria-hidden="true">
                                 <label>No completar este campo
@@ -1178,12 +1918,14 @@
                                     <div class="form-floating">
                                         <select class="form-select" id="cf-servicio" name="servicio" required>
                                             <option value="" selected disabled hidden></option>
-                                            <option value="Gestión de Inventario">Gestión de Inventario</option>
-                                            <option value="Servicios de Procura">Servicios de Procura</option>
-                                            <option value="Gestión de Regrind &amp; Retep">Gestión de Regrind &amp; Retep</option>
+                                            <option value="Filtración Industrial">Filtración Industrial</option>
+                                            <option value="Metrología">Metrología</option>
+                                            <option value="MRO">MRO</option>
+                                            <option value="Herramientas de Corte">Herramientas de Corte</option>
+                                            <option value="Abrasivos">Abrasivos</option>
                                             <option value="Otro">Otro</option>
                                         </select>
-                                        <label for="cf-servicio">Servicio de Interés *</label>
+                                        <label for="cf-servicio">Línea de Interés *</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -1193,7 +1935,7 @@
                                     </div>
                                     <div class="form-helper d-flex justify-content-between gap-3">
                                         <span>Describa volúmenes, productos o tiempos específicos para una propuesta más precisa.</span>
-                                        <span class="form-helper-counter"><span id="cf-req-count">0</span>/2000</span>
+                                        <span class="form-helper-counter"><span id="cf-req-count" data-req-count>0</span>/2000</span>
                                     </div>
                                 </div>
                             </div>
@@ -1284,10 +2026,12 @@
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <p class="footer-title">Servicios</p>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Gestión de Inventario</a>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Servicios de Procura</a>
-                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Gestión de Regrind &amp; Retep</a>
+                    <p class="footer-title">Líneas de Productos</p>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Filtración Industrial</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Metrología</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> MRO</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Herramientas de Corte</a>
+                    <a class="footer-link" href="#servicios"><i class="fa fa-angle-right"></i> Abrasivos</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <p class="footer-title">Contacto</p>
@@ -1323,6 +2067,7 @@
     <!-- Scripts -->
     <script src="jquery/jquery-3.6.0.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="js/slick.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         // Smooth active link highlight on scroll
@@ -1341,6 +2086,24 @@
         // Bootstrap tooltips
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
             .forEach(el => new bootstrap.Tooltip(el));
+
+        // Casos de Éxito Slick carousel
+        if (window.jQuery && jQuery.fn.slick) {
+            jQuery('.casos-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                infinite: true,
+                arrows: true,
+                dots: true,
+                pauseOnHover: true,
+                responsive: [
+                    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+                    { breakpoint: 768,  settings: { slidesToShow: 1, arrows: false } }
+                ]
+            });
+        }
     </script>
 
     <!-- Contact form: reCAPTCHA v3 + handler.
@@ -1352,7 +2115,7 @@
         };
     </script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LcZ_tAsAAAAAMym7IKUgttUKtc3cc_sa4d_OWjQ"></script>
-    <script src="js/contact-form.js"></script>
+    <script src="js/contact-form-multi.js"></script>
 
 </body>
 </html>
