@@ -1028,7 +1028,8 @@
         .btn-results-cta:hover { color: #fff; background: var(--green-dk); transform: translateY(-3px); box-shadow: 0 18px 36px rgba(36,173,67,.45); }
         .btn-results-cta:hover i { transform: translateX(4px); }
 
-        /* ----- CASOS DE ÉXITO section ----- */
+        /* ----- CASOS DE ÉXITO section (DISABLED — uncomment block below to restore) ----- */
+        /*
         .casos-section {
             padding: 6rem 0;
             background: var(--dark2);
@@ -1128,6 +1129,7 @@
             .casos-slider .slick-prev,
             .casos-slider .slick-next { display: none !important; }
         }
+        */
 
         /* ----- BUTTON HOVER ANIMATIONS (universal layer) ----- */
         @media (prefers-reduced-motion: no-preference) {
@@ -1612,7 +1614,8 @@
         </div>
     </section>
 
-    <!-- ===== CASOS DE ÉXITO (mocked) ===== -->
+    <!-- ===== CASOS DE ÉXITO (mocked) — DISABLED. Restore by removing the surrounding comment wrappers. ===== -->
+    <!--
     <section class="casos-section" id="casos">
         <div class="container">
             <div class="text-center mb-4">
@@ -1624,7 +1627,9 @@
                 </p>
             </div>
             <div class="casos-slider">
+    -->
                 <!-- MOCK TESTIMONIAL — replace with real client quote -->
+    <!--
                 <div>
                     <div class="case-card">
                         <div class="case-stars" aria-hidden="true">
@@ -1634,7 +1639,9 @@
                         <p class="case-attrib">— Planta ABC, Hermosillo</p>
                     </div>
                 </div>
+    -->
                 <!-- MOCK TESTIMONIAL — replace with real client quote -->
+    <!--
                 <div>
                     <div class="case-card">
                         <div class="case-stars" aria-hidden="true">
@@ -1644,7 +1651,9 @@
                         <p class="case-attrib">— Manufactura XYZ</p>
                     </div>
                 </div>
+    -->
                 <!-- MOCK TESTIMONIAL — replace with real client quote -->
+    <!--
                 <div>
                     <div class="case-card">
                         <div class="case-stars" aria-hidden="true">
@@ -1654,7 +1663,9 @@
                         <p class="case-attrib">— Proveedor Tier 1, Guaymas</p>
                     </div>
                 </div>
+    -->
                 <!-- MOCK TESTIMONIAL — replace with real client quote -->
+    <!--
                 <div>
                     <div class="case-card">
                         <div class="case-stars" aria-hidden="true">
@@ -1664,7 +1675,9 @@
                         <p class="case-attrib">— Maquiladora Norte</p>
                     </div>
                 </div>
+    -->
                 <!-- MOCK TESTIMONIAL — replace with real client quote -->
+    <!--
                 <div>
                     <div class="case-card">
                         <div class="case-stars" aria-hidden="true">
@@ -1677,6 +1690,8 @@
             </div>
         </div>
     </section>
+    -->
+    <!-- ===== END DISABLED CASOS DE ÉXITO ===== -->
 
     <!-- ===== CATALOGS ===== -->
     <section class="catalogs-section" id="catalogos">
@@ -2087,7 +2102,8 @@
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
             .forEach(el => new bootstrap.Tooltip(el));
 
-        // Casos de Éxito Slick carousel
+        // Casos de Éxito Slick carousel — DISABLED (section is commented out)
+        /*
         if (window.jQuery && jQuery.fn.slick) {
             jQuery('.casos-slider').slick({
                 slidesToShow: 3,
@@ -2104,6 +2120,7 @@
                 ]
             });
         }
+        */
     </script>
 
     <!-- Contact form: reCAPTCHA v3 + handler.
