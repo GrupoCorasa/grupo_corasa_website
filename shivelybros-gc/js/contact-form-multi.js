@@ -1,5 +1,5 @@
 /**
- * Multi-form variant of contact-form.js for CHANGE-EXAMPLE.html.
+ * Contact-form handler for shivelybros-gc/index.html.
  *
  * Wires every form with class .js-contact-form to contact.php via fetch,
  * gates submission on a per-submit reCAPTCHA v3 token, and fires a Google
@@ -10,9 +10,6 @@
  *   data-success-id="..."  -> id of the success alert div
  *   data-error-id="..."    -> id of the error alert div
  *   <... data-req-count>   -> the character counter span inside the form
- *
- * Original single-form handler at js/contact-form.js stays in place for
- * the live index.html — this file only powers the staging demo.
  */
 (function () {
     'use strict';
