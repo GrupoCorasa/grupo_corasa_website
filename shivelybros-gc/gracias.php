@@ -79,30 +79,18 @@ session_write_close();
         body {
             margin: 0;
             font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
-            background: var(--dark);
             color: var(--white);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background:
+                linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.82) 0%,
+                    rgba(18, 22, 28, 0.74) 55%,
+                    rgba(36, 173, 67, 0.22) 100%),
+                url('image/hero.jpg') center center / cover no-repeat;
+            background-attachment: fixed;
         }
-        .gracias-header {
-            display: flex;
-            align-items: center;
-            padding: 18px 28px;
-            background: var(--dark2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .gracias-header a { display: inline-flex; align-items: center; }
-        .gracias-header img { height: 52px; }
-        .gracias-header .brand-text {
-            margin-left: 14px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            font-size: 18px;
-            color: var(--white);
-        }
-        .gracias-header .brand-text span { color: var(--green); }
         main.gracias-main {
             flex: 1;
             display: flex;
@@ -111,26 +99,22 @@ session_write_close();
             padding: 48px 20px;
         }
         .gracias-card {
-            background: var(--dark2);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
+            background: rgba(27, 32, 40, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 18px;
             padding: 52px 38px;
             max-width: 640px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
         }
-        .gracias-check {
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            background: rgba(36, 173, 67, 0.15);
-            color: var(--green);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 34px;
-            margin-bottom: 22px;
+        .gracias-logo {
+            height: 96px;
+            width: auto;
+            margin: 0 0 26px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
         }
         .gracias-card h1 {
             font-family: 'Oswald', sans-serif;
@@ -175,12 +159,11 @@ session_write_close();
             line-height: 1.7;
         }
         @media (max-width: 575px) {
-            .gracias-header { padding: 14px 18px; }
-            .gracias-header img { height: 44px; }
-            .gracias-header .brand-text { font-size: 16px; margin-left: 10px; }
+            body { background-attachment: scroll; }
             .gracias-card { padding: 38px 22px; }
             .gracias-card h1 { font-size: 26px; }
             .gracias-card .lead { font-size: 15.5px; }
+            .gracias-logo { height: 76px; margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -190,16 +173,9 @@ session_write_close();
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header class="gracias-header">
-        <a href="https://grupocorasa.mx" aria-label="Grupo Corasa">
-            <img src="image/slider/logo.png" alt="Shively Bros">
-        </a>
-        <span class="brand-text d-none d-md-inline">Corasa &nbsp;·&nbsp; <span>Shively Bros</span></span>
-    </header>
-
     <main class="gracias-main">
         <div class="gracias-card">
-            <div class="gracias-check"><i class="fa fa-check"></i></div>
+            <img class="gracias-logo" src="image/shively-bros.png" alt="Shively Bros">
             <h1>¡Gracias por contactarnos!</h1>
             <p class="lead">Hemos recibido correctamente tu solicitud. Uno de nuestros especialistas se pondrá en contacto contigo a la brevedad para dar seguimiento a tu requerimiento.</p>
             <a href="<?= htmlspecialchars($source, ENT_QUOTES, 'UTF-8') ?>" class="btn-volver">
