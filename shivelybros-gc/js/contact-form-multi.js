@@ -81,10 +81,15 @@
                 })
                 .then(function (data) {
                     if (data && data.ok) {
-                        showSuccess('¡Gracias! Su mensaje ha sido enviado. Le contactaremos a la brevedad.');
+                        showSuccess('¡Gracias! Redirigiendo…');
                         form.reset();
                         if (reqCount) reqCount.textContent = '0';
-                        fireConversion();
+                        // Brief pause so the session cookie set by contact.php
+                        // commits in the browser and the user sees confirmation
+                        // before the navigation fires.
+                        window.setTimeout(function () {
+                            window.location.assign('/shivelybros-gc/gracias.php');
+                        }, 1200);
                     } else {
                         showError((data && data.error) || 'No fue posible enviar el formulario.');
                     }
@@ -96,15 +101,6 @@
                 .then(function () {
                     setSubmitting(false);
                 });
-        }
-
-        function fireConversion() {
-            if (typeof window.gtag !== 'function') return;
-            if (!CFG.adsConversionId || /^TODO_/.test(CFG.adsConversionId)) return;
-            window.gtag('event', 'conversion', {
-                send_to: CFG.adsConversionId,
-                event_callback: function () { /* no-op; UI already updated */ }
-            });
         }
 
         function setSubmitting(isSubmitting) {

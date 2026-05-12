@@ -13,6 +13,19 @@ declare(strict_types=1);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
 
+const FORM_SOURCE = '/shivelybros-gc/abrasivos/index.html';
+
+session_cache_limiter('');
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path'     => '/shivelybros-gc/',
+    'secure'   => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+                  || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https'),
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
+session_start();
+
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: no-store');
@@ -123,6 +136,10 @@ try {
     echo json_encode(['ok' => false, 'error' => 'Error inesperado del servidor.']);
     exit;
 }
+
+$_SESSION['contact_form_submitted'] = true;
+$_SESSION['contact_form_source']    = FORM_SOURCE;
+session_write_close();
 
 echo json_encode(['ok' => true]);
 exit;
