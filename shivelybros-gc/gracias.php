@@ -51,15 +51,6 @@ session_write_close();
     })(window,document,'script','dataLayer','GTM-TKV3MDLS');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Google tag (gtag.js) — Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61H5JPVFCH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-61H5JPVFCH');
-    </script>
-
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
