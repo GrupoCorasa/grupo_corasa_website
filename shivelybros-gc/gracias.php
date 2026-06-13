@@ -1,10 +1,14 @@
 <?php
 /**
- * Thank-you page shown after a successful contact form submission.
+ * Thank-you page shown after a contact form submission.
  *
- * Access is gated by a one-shot session flag set in contact.php on success.
- * Direct URL access redirects to the main landing. Refreshing the page
- * after consumption also bounces — the flag is cleared on render.
+ * The page is publicly viewable: any direct URL visit renders normally.
+ * Conversion tracking is gated separately — the GTM `form_submit_success`
+ * event fires only when the one-shot session flag set by contact.php on a
+ * genuine submission is present. That flag is consumed on render, so a
+ * refresh or a plain direct hit shows the page without (re-)firing the
+ * conversion. Direct visitors fall back to the main landing for the
+ * "Volver al Sitio" link.
  */
 
 declare(strict_types=1);
@@ -18,23 +22,31 @@ session_set_cookie_params([
     'httponly' => true,
     'samesite' => 'Lax',
 ]);
-session_start();
+// Only resume an existing session — the page is public now, so don't mint a
+// fresh session (and Set-Cookie) for anonymous direct visitors or crawlers.
+// A genuine submission always arrives carrying the cookie set by contact.php.
+if (!empty($_COOKIE[session_name()])) {
+    session_start();
+}
 
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 header('X-Robots-Tag: noindex, nofollow');
 
-if (empty($_SESSION['contact_form_submitted'])) {
-    http_response_code(303);
-    header('Location: /shivelybros-gc/index.html');
-    exit;
+// Did the visitor arrive from an actual form submission? The flag is a
+// one-shot set by contact.php; its presence — not access to the page — is
+// what authorizes the conversion event emitted at the bottom of the page.
+$genuineSubmission = !empty($_SESSION['contact_form_submitted']);
+$source            = $_SESSION['contact_form_source'] ?? '/shivelybros-gc/index.html';
+
+// Consume the one-shot flag so a refresh (or a later direct hit reusing the
+// same session) renders the page without re-firing the conversion.
+if ($genuineSubmission) {
+    unset($_SESSION['contact_form_submitted'], $_SESSION['contact_form_source']);
 }
-
-$source = $_SESSION['contact_form_source'] ?? '/shivelybros-gc/index.html';
-
-unset($_SESSION['contact_form_submitted']);
-unset($_SESSION['contact_form_source']);
-session_write_close();
+if (session_status() === PHP_SESSION_ACTIVE) {
+    session_write_close();
+}
 ?><!doctype html>
 <html lang="es">
 <head>
@@ -176,6 +188,7 @@ session_write_close();
         </div>
     </main>
 
+    <?php if ($genuineSubmission): ?>
     <script>
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -185,5 +198,6 @@ session_write_close();
             page_path: '/shivelybros-gc/gracias.php'
         });
     </script>
+    <?php endif; ?>
 </body>
 </html>
