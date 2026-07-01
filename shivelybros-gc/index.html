@@ -571,6 +571,140 @@
             transform: scale(1.1);
         }
 
+        /* ===== MARCAS (BRAND MARQUEE) ===== */
+        .brands-section {
+            padding: 6rem 0;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .brands-subtitle {
+            color: var(--muted);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .brands-marquee {
+            margin: 2.75rem 0 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            /* fade both edges */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+        }
+        .brands-row { display: flex; }
+        .brands-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+        .brands-row--ltr .brands-track { animation: brands-scroll-left  55s linear infinite; }
+        .brands-row--rtl .brands-track { animation: brands-scroll-right 55s linear infinite; }
+        .brands-marquee:hover .brands-track { animation-play-state: paused; }
+        @keyframes brands-scroll-left {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes brands-scroll-right {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        /* Static fallback (no-JS / reduced motion): wrapped, centered chip cloud */
+        .brands-row.is-static {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .85rem;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        /* Each chip is a white tile holding a brand logo, so logos of any color
+           read cleanly against the dark section background. */
+        .brand-chip {
+            flex-shrink: 0;
+            margin: 0 .6rem;
+            height: 92px;
+            min-width: 168px;
+            padding: 0 1.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.28);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .brand-chip img {
+            max-height: 50px;
+            max-width: 140px;
+            width: auto;
+            object-fit: contain;
+            transition: transform .3s;
+        }
+        .brands-row.is-static .brand-chip { margin: .55rem; }
+        .brand-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,.42);
+        }
+        .brand-chip:hover img { transform: scale(1.05); }
+        .brands-cta-wrap { text-align: center; margin-top: .5rem; }
+
+        /* Pause/Play control (WCAG 2.2.2) — injected by JS alongside the animated rows */
+        .brands-controls {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto .25rem;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .brands-pause {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark3);
+            color: #cfd6df;
+            border: 1px solid rgba(255,255,255,.1);
+            cursor: pointer;
+            transition: color .25s, border-color .25s, background .25s;
+        }
+        .brands-pause:hover,
+        .brands-pause:focus-visible {
+            color: #fff;
+            border-color: var(--green);
+            background: var(--dark2);
+        }
+        .brands-pause:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+        .brands-marquee.is-paused .brands-track { animation-play-state: paused; }
+
+        @media (max-width: 575px) {
+            .brand-chip { height: 74px; min-width: 134px; padding: 0 1.3rem; }
+            .brand-chip img { max-height: 40px; max-width: 108px; }
+        }
+        /* Reduced motion: freeze the marquee and reflow chips into a centered cloud.
+           Targets .brands-track (the element that actually holds the chips) so a
+           runtime motion-preference toggle degrades gracefully instead of clipping. */
+        @media (prefers-reduced-motion: reduce) {
+            .brands-row { justify-content: center; }
+            .brands-track {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: auto;
+                max-width: 960px;
+                gap: .6rem;
+                animation: none !important;
+            }
+            .brands-track .brand-chip { margin: 0; }
+            .brands-track .brand-chip[aria-hidden="true"] { display: none; }
+            .brands-controls { display: none; }
+        }
+
         /* ===== FOOTER ===== */
         .site-footer {
             background: var(--dark);
@@ -1294,6 +1428,7 @@
                     <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#nosotros">Acerca De</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#catalogos">Catálogos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item">
@@ -1580,6 +1715,75 @@
                         <a href="abrasivos/" class="srv-cta" data-line="abrasivos">Ver más <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARCAS ===== -->
+    <section class="brands-section" id="marcas">
+        <div class="container">
+            <div class="text-center mb-2">
+                <p class="section-label">Marcas Aliadas</p>
+                <h2 class="section-title light">Marcas líderes que respaldan nuestras soluciones</h2>
+                <div class="title-bar center"></div>
+                <p class="brands-subtitle">
+                    Trabajamos con fabricantes reconocidos a nivel internacional para ofrecer soluciones confiables a la industria y la manufactura.
+                </p>
+            </div>
+        </div>
+
+        <!-- Progressive enhancement: this static list is the single source of brand
+             names (SEO-friendly, works without JS). The script below reads it, shuffles
+             the order on every load, and rebuilds it as a two-row animated marquee. -->
+        <div class="brands-marquee" id="brandsMarquee" data-brands-marquee role="group" aria-label="Marcas con las que trabajamos">
+            <div class="brands-row is-static" data-brands-source>
+                <span class="brand-chip"><img src="image/brands/3m.svg" alt="3M" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/aaf.png" alt="AAF International" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/apex.svg" alt="Apex Tool Group" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/balluff.svg" alt="Balluff" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/boll-and-kirsch.png" alt="Boll &amp; Kirch — BOLLFILTER" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/bondhus.png" alt="Bondhus" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/camfil.svg" alt="Camfil" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/chicago-pneumatic.png" alt="Chicago Pneumatic" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/cristal-filtration.png" alt="Crystal Filtration" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/donaldson.svg" alt="Donaldson" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/dynabrade.svg" alt="Dynabrade" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/enerpac.png" alt="Enerpac" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/filtex.png" alt="Filtex" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/fluke.svg" alt="Fluke" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/great-lakes-pumps.png" alt="Great Lakes Pump &amp; Supply" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/heidenhain.svg" alt="HEIDENHAIN" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/icom.png" alt="ICOM Filtration" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/intertape.png" alt="Intertape Polymer Group" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/klingspor.png" alt="Klingspor" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/lenox.png" alt="LENOX" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/macrofilter.png" alt="Macrofilter" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/mahr.svg" alt="Mahr" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/mitutoyo.svg" alt="Mitutoyo" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/norton.png" alt="Norton | Saint-Gobain" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/osborn.svg" alt="Osborn" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/pferd.svg" alt="PFERD" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/renishaw.png" alt="Renishaw" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/rosedale.png" alt="Rosedale Products" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/siemens.svg" alt="Siemens" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/snap-on.svg" alt="Snap-on" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/starrett.svg" alt="Starrett" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/struers.svg" alt="Struers" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/tohnichi.png" alt="Tohnichi" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/universal-tool.png" alt="Universal Tool" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/vermont-gage.svg" alt="Vermont Gage" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/vgage.png" alt="V Gage" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/weiler.svg" alt="Weiler" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/wiha.svg" alt="Wiha" loading="lazy"></span>
+                <span class="brand-chip"><img src="image/brands/zealtek.png" alt="Zealtek" loading="lazy"></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="brands-cta-wrap">
+                <a href="#contacto" class="btn-results-cta">
+                    Solicitar Asesoría <i class="fa fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -2128,6 +2332,85 @@
         // Bootstrap tooltips
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
             .forEach(el => new bootstrap.Tooltip(el));
+
+        // Brand marquee: shuffle brands on every load, build a seamless two-row
+        // animated marquee. Progressive enhancement — the static list stays put
+        // for no-JS or reduced-motion users.
+        (function () {
+            const marquee = document.querySelector('[data-brands-marquee]');
+            if (!marquee) return;
+            const source = marquee.querySelector('[data-brands-source]');
+            if (!source) return;
+
+            // Respect the user's motion preference: keep the static wrapped list.
+            const reduceMotion = window.matchMedia
+                && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return;
+
+            const chips = Array.from(source.querySelectorAll('.brand-chip'));
+            if (chips.length < 2) return; // nothing worth animating
+
+            // Fisher–Yates shuffle for an unbiased, fresh order on each visit.
+            for (let i = chips.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [chips[i], chips[j]] = [chips[j], chips[i]];
+            }
+
+            // Split into two balanced rows that scroll in opposite directions.
+            const mid = Math.ceil(chips.length / 2);
+            const rows = [chips.slice(0, mid), chips.slice(mid)];
+            const dirClass = ['brands-row--ltr', 'brands-row--rtl'];
+
+            const makeChip = (chip, clone) => {
+                const node = chip.cloneNode(true); // deep clone keeps the logo <img>
+                // The duplicated set exists only for the seamless loop; hide it
+                // from assistive tech so each brand isn't announced twice.
+                if (clone) {
+                    node.setAttribute('aria-hidden', 'true');
+                    const img = node.querySelector('img');
+                    if (img) img.setAttribute('alt', '');
+                }
+                return node;
+            };
+
+            const frag = document.createDocumentFragment();
+            rows.forEach((list, idx) => {
+                if (!list.length) return;
+                const row = document.createElement('div');
+                row.className = 'brands-row ' + dirClass[idx];
+                const track = document.createElement('div');
+                track.className = 'brands-track';
+                // Render the set twice so translateX(-50%) loops seamlessly.
+                [false, true].forEach(isClone => {
+                    list.forEach(chip => track.appendChild(makeChip(chip, isClone)));
+                });
+                row.appendChild(track);
+                frag.appendChild(row);
+            });
+
+            // Accessible pause/play control (WCAG 2.2.2 Pause, Stop, Hide):
+            // keyboard- and touch-operable, since :hover pausing is mouse-only.
+            const controls = document.createElement('div');
+            controls.className = 'brands-controls';
+            const pauseBtn = document.createElement('button');
+            pauseBtn.type = 'button';
+            pauseBtn.className = 'brands-pause';
+            pauseBtn.setAttribute('aria-pressed', 'false');
+            pauseBtn.setAttribute('aria-label', 'Pausar el carrusel de marcas');
+            pauseBtn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+            pauseBtn.addEventListener('click', () => {
+                const paused = marquee.classList.toggle('is-paused');
+                pauseBtn.setAttribute('aria-pressed', String(paused));
+                pauseBtn.setAttribute('aria-label',
+                    paused ? 'Reanudar el carrusel de marcas' : 'Pausar el carrusel de marcas');
+                pauseBtn.querySelector('i').className = paused ? 'fa fa-play' : 'fa fa-pause';
+            });
+            controls.appendChild(pauseBtn);
+
+            marquee.textContent = '';
+            marquee.appendChild(controls);
+            marquee.appendChild(frag);
+        })();
 
         // Casos de Éxito Slick carousel — DISABLED (section is commented out)
         /*
