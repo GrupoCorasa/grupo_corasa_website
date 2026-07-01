@@ -806,6 +806,164 @@
             margin: 0;
         }
 
+        /* ===== MARCAS (FILTRATION BRAND WALL) ===== */
+        .marcas-section {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .marcas-subtitle {
+            color: #5f6772;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        /* Responsive masonry-style wall of brand cards. Flex-wrap keeps the
+           last (partial) row centered instead of ragged-left. */
+        .marcas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.35rem;
+            margin: 3rem auto 3.25rem;
+        }
+        /* Each card is a white tile with a centered logo; hover or keyboard
+           focus reveals a green overlay with the brand name + description. */
+        .marca-card {
+            position: relative;
+            /* grow:0 so cards keep a uniform width — a partial last row stays the
+               same size as full rows (centered) instead of stretching wider. */
+            flex: 0 1 240px;
+            min-height: 230px;
+            margin: 0; /* reset Bootstrap Reboot's figure{margin:0 0 1rem} */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.75rem 1.5rem;
+            background: #fff;
+            border: 1px solid rgba(18,22,28,.08);
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            overflow: hidden;
+            cursor: default;
+            transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s;
+        }
+        .marca-card:hover,
+        .marca-card:focus-within {
+            transform: translateY(-5px);
+            border-color: var(--green);
+            box-shadow: 0 18px 38px rgba(0,0,0,.14);
+        }
+        .marca-card:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+        .marca-card__logo {
+            max-height: 64px;
+            max-width: 155px;
+            width: auto;
+            object-fit: contain;
+            transition: opacity .3s;
+        }
+        .marca-card__overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .4rem;
+            padding: 1.3rem 1.25rem;
+            background: linear-gradient(150deg, var(--green-dk) 0%, var(--dark) 120%);
+            opacity: 0;
+            transform: translateY(10px);
+            /* Descriptions are sized to fit; overflow-y stays scrollable as an
+               invisible safety net (scrollbar hidden) so text is never lost. */
+            overflow-y: auto;
+            scrollbar-width: none;              /* Firefox: hide scrollbar */
+            transition: opacity .3s ease, transform .3s ease;
+        }
+        .marca-card__overlay::-webkit-scrollbar { display: none; } /* WebKit: hide scrollbar */
+        .marca-card:hover .marca-card__overlay,
+        .marca-card:focus-within .marca-card__overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .marca-card:hover .marca-card__logo,
+        .marca-card:focus-within .marca-card__logo { opacity: 0; }
+        .marca-card__name {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: #fff;
+        }
+        .marca-card__name::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin-top: .45rem;
+            background: rgba(255,255,255,.6);
+        }
+        .marca-card__desc {
+            margin: 0;
+            font-size: .78rem;
+            line-height: 1.48;
+            color: #fff;
+        }
+        .marcas-cta-wrap { text-align: center; }
+
+        /* Keep a balanced 4-4-2 at the lg breakpoint (992-1199px): the container
+           there is too narrow for 5 across but fits 4, avoiding a 3-3-3-1 orphan row. */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            /* Narrower cards here, so give a little more height for the longest
+               descriptions to stay clip-free. */
+            .marca-card { flex-basis: 215px; min-height: 250px; }
+        }
+        /* Phones: one full-width card per row. */
+        @media (max-width: 575.98px) {
+            .marca-card { flex-basis: 100%; }
+        }
+
+        /* Touch / no-hover devices: there is no hover to trigger the overlay,
+           so show the logo and its description stacked and always visible. */
+        @media (hover: none) {
+            .marca-card {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 1rem;
+                min-height: 0;
+                cursor: default;
+            }
+            .marca-card:hover,
+            .marca-card:focus-within {
+                transform: none;
+                border-color: rgba(18,22,28,.08);
+                box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            }
+            .marca-card__logo { opacity: 1 !important; }
+            .marca-card__overlay {
+                position: static;
+                opacity: 1;
+                transform: none;
+                overflow: visible;
+                padding: 0;
+                background: none;
+                text-align: center;
+                align-items: center;
+            }
+            .marca-card__name { color: var(--dark); }
+            .marca-card__name::after { margin: .55rem auto 0; background: var(--green); }
+            .marca-card__desc { color: #5f6772; }
+        }
+
+        /* Honour reduced-motion: no lift / fade transitions. */
+        @media (prefers-reduced-motion: reduce) {
+            .marca-card,
+            .marca-card__logo,
+            .marca-card__overlay { transition: none; }
+            .marca-card:hover,
+            .marca-card:focus-within { transform: none; }
+            .marca-card__overlay { transform: none; }
+        }
+
         /* Why-Shively + industries section */
         .fi-why-section {
             padding: 6rem 0;
@@ -923,6 +1081,7 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#soluciones">Soluciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#por-que">¿Por Qué Shively?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item">
@@ -1045,6 +1204,110 @@
                         <p>Soluciones adaptadas a procesos específicos de manufactura. Diseñamos esquemas a medida según el contaminante, el caudal y las condiciones de su línea.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARCAS (FILTRACIÓN) ===== -->
+    <section class="marcas-section" id="marcas" aria-labelledby="marcas-title">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Marcas Aliadas</p>
+                <h2 class="section-title" id="marcas-title">Comercializamos marcas líderes en filtración industrial</h2>
+                <div class="title-bar center"></div>
+                <p class="marcas-subtitle">
+                    Seleccionamos fabricantes reconocidos por su calidad, confiabilidad y desempeño para ofrecer soluciones que respondan a los requerimientos de la industria.
+                </p>
+            </div>
+
+            <!-- Hover (or keyboard-focus) a card to reveal the brand's description.
+                 On touch devices the description is shown beneath each logo. -->
+            <div class="marcas-grid">
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/macrofilter.png" alt="Macrofilter" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Macrofilter</p>
+                        <p class="marca-card__desc">Ofrece soluciones a la medida para el manejo de aire, líquidos y polvos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/filtex.png" alt="Filtex" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Filtex</p>
+                        <p class="marca-card__desc">Se especializa en soluciones de filtración industrial para retener polvos, líquidos y gases.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/camfil.svg" alt="Camfil FAR" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Camfil FAR</p>
+                        <p class="marca-card__desc">Es líder mundial de filtros de aire y soluciones industriales sostenibles de aire limpio y alta calidad.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/cristal-filtration.png" alt="Crystal Filtration" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Crystal Filtration</p>
+                        <p class="marca-card__desc">Ofrece soluciones innovadoras para la filtración de líquidos, aire, alimentos y bebidas, complementadas con amplios servicios de pruebas.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/icom.png" alt="ICOM1" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">ICOM1</p>
+                        <p class="marca-card__desc">Desarrolla soluciones de filtración que ayudan a reducir tiempos de paro, proteger equipos críticos y mantener la continuidad operativa.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/boll-and-kirsch.png" alt="Boll &amp; Kirch" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Boll &amp; Kirch</p>
+                        <p class="marca-card__desc">Especializado en sistemas de filtración industrial para líquidos, principalmente para proteger equipos críticos en industrias como la marítima, generación de energía, petróleo y gas, química, minería y manufactura.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/rosedale.png" alt="Rosedale Products" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Rosedale Products</p>
+                        <p class="marca-card__desc">Ofrece filtros de bolsa, cartuchos y soluciones personalizadas para aplicaciones industriales que requieren un alto nivel de confiabilidad y eficiencia.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/donaldson.svg" alt="Donaldson" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Donaldson</p>
+                        <p class="marca-card__desc">Especialista en soluciones de filtración industrial para aire, líquidos y procesos de manufactura, diseñadas para proteger equipos, optimizar la eficiencia operativa y prolongar la vida útil de la maquinaria.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/zealtek.png" alt="Zealtek" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Zealtek</p>
+                        <p class="marca-card__desc">Proporciona soluciones para procesos de maquinado, manejo de fluidos y tratamiento de líquidos, ayudando a optimizar la productividad y reducir costos operativos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/aaf.png" alt="AAF" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">AAF</p>
+                        <p class="marca-card__desc">Ofrece tecnologías que ayudan a controlar contaminantes, proteger equipos y crear ambientes más seguros y eficientes para la operación industrial.</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="marcas-cta-wrap">
+                <a href="#contacto" class="btn-hero-primary">
+                    <i class="fa fa-paper-plane me-2" aria-hidden="true"></i>Solicitar Información
+                </a>
             </div>
         </div>
     </section>
