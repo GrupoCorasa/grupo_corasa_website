@@ -775,6 +775,165 @@
             margin: 0;
         }
 
+        /* ===== MARCAS (MRO BRAND WALL) ===== */
+        .marcas-section {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .marcas-subtitle {
+            color: #5f6772;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .marcas-title {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Responsive wall of brand cards. Flex-wrap + justify-center keeps every
+           row — including a partial last row — centered instead of ragged-left,
+           so the 14 brands read as an intentional block at any column count.
+           flex-grow:0 keeps all cards a uniform width (a short last row does not
+           stretch). max-width caps the track so wide viewports render ~5 across
+           (5-5-4) rather than a single sparse line. */
+        .marcas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.3rem;
+            max-width: 1180px;
+            margin: 3rem auto 3.25rem;
+        }
+        /* Each card is a white tile with a centered logo; hover or keyboard focus
+           reveals a green overlay with the brand name + short description. */
+        .marca-card {
+            position: relative;
+            flex: 0 1 205px;
+            min-height: 235px;
+            margin: 0; /* reset Bootstrap Reboot's figure{margin:0 0 1rem} */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.6rem 1.4rem;
+            background: #fff;
+            border: 1px solid rgba(18,22,28,.08);
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            overflow: hidden;
+            cursor: default;
+            transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s;
+        }
+        .marca-card:hover,
+        .marca-card:focus-within {
+            transform: translateY(-5px);
+            border-color: var(--green);
+            box-shadow: 0 18px 38px rgba(0,0,0,.14);
+        }
+        .marca-card:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+        .marca-card__logo {
+            max-height: 60px;
+            max-width: 150px;
+            width: auto;
+            object-fit: contain;
+            transition: opacity .3s;
+        }
+        .marca-card__overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .4rem;
+            padding: 1.25rem 1.2rem;
+            background: linear-gradient(150deg, var(--green-dk) 0%, var(--dark) 120%);
+            opacity: 0;
+            transform: translateY(10px);
+            /* Descriptions are sized to fit; overflow-y stays scrollable as an
+               invisible safety net (scrollbar hidden) so text is never clipped. */
+            overflow-y: auto;
+            scrollbar-width: none;              /* Firefox: hide scrollbar */
+            transition: opacity .3s ease, transform .3s ease;
+        }
+        .marca-card__overlay::-webkit-scrollbar { display: none; } /* WebKit: hide scrollbar */
+        .marca-card:hover .marca-card__overlay,
+        .marca-card:focus-within .marca-card__overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .marca-card:hover .marca-card__logo,
+        .marca-card:focus-within .marca-card__logo { opacity: 0; }
+        .marca-card__name {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: #fff;
+        }
+        .marca-card__name::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin-top: .45rem;
+            background: rgba(255,255,255,.6);
+        }
+        .marca-card__desc {
+            margin: 0;
+            font-size: .78rem;
+            line-height: 1.48;
+            color: #fff;
+        }
+        .marcas-cta-wrap { text-align: center; }
+
+        /* Phones: one full-width card per row. */
+        @media (max-width: 575.98px) {
+            .marca-card { flex-basis: 100%; }
+        }
+
+        /* Touch / no-hover devices: there is no hover to trigger the overlay, so
+           show each logo with its description stacked and always visible. */
+        @media (hover: none) {
+            .marca-card {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 1rem;
+                min-height: 0;
+                cursor: default;
+            }
+            .marca-card:hover,
+            .marca-card:focus-within {
+                transform: none;
+                border-color: rgba(18,22,28,.08);
+                box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            }
+            .marca-card__logo { opacity: 1 !important; }
+            .marca-card__overlay {
+                position: static;
+                opacity: 1;
+                transform: none;
+                overflow: visible;
+                padding: 0;
+                background: none;
+                text-align: center;
+                align-items: center;
+            }
+            .marca-card__name { color: var(--dark); }
+            .marca-card__name::after { margin: .55rem auto 0; background: var(--green); }
+            .marca-card__desc { color: #5f6772; }
+        }
+
+        /* Honour reduced-motion: no lift / fade transitions. */
+        @media (prefers-reduced-motion: reduce) {
+            .marca-card,
+            .marca-card__logo,
+            .marca-card__overlay { transition: none; }
+            .marca-card:hover,
+            .marca-card:focus-within { transform: none; }
+            .marca-card__overlay { transform: none; }
+        }
+
         /* Why-Shively + sectors section */
         .mro-why-section {
             padding: 6rem 0;
@@ -899,6 +1058,7 @@
                     <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#que-incluye">¿Qué incluye?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#soluciones">Suministros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#por-que">¿Por Qué Shively?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item">
@@ -1068,6 +1228,142 @@
                         <p>Apoyo en gestión y suministro oportuno de materiales MRO. Acompañamos a compras y mantenimiento para evitar quiebres de stock en lo crítico.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARCAS (MRO) ===== -->
+    <section class="marcas-section" id="marcas" aria-labelledby="marcas-title">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Marcas Aliadas</p>
+                <h2 class="section-title marcas-title" id="marcas-title">Trabajamos con marcas líderes para mantenimiento, reparación y operación industrial.</h2>
+                <div class="title-bar center"></div>
+                <p class="marcas-subtitle">
+                    En Shively Bros ponemos a tu alcance soluciones MRO respaldadas por fabricantes reconocidos internacionalmente. Nuestro objetivo es ayudarte a encontrar los productos adecuados para mantenimiento, reparación y operación, con el respaldo de marcas confiables y asesoría técnica especializada.
+                </p>
+            </div>
+
+            <!-- Hover (or keyboard-focus) a card to reveal the brand's description.
+                 On touch devices the description is shown beneath each logo. -->
+            <div class="marcas-grid">
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/dynabrade.svg" alt="Dynabrade" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Dynabrade</p>
+                        <p class="marca-card__desc">Herramientas neumáticas y soluciones para lijado, acabado y preparación de superficies industriales.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/universal-tool.png" alt="Universal Tool Inc." loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Universal Tool Inc.</p>
+                        <p class="marca-card__desc">Herramientas neumáticas de alto desempeño para aplicaciones industriales y líneas de producción.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/apex.svg" alt="Apex" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Apex</p>
+                        <p class="marca-card__desc">Herramientas de torque y sistemas de ensamble diseñados para procesos industriales de alta precisión.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/enerpac.png" alt="Enerpac" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Enerpac</p>
+                        <p class="marca-card__desc">Equipos hidráulicos para levantamiento, posicionamiento y mantenimiento industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/bondhus.png" alt="Bondhus" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Bondhus</p>
+                        <p class="marca-card__desc">Llaves hexagonales y herramientas manuales de precisión para mantenimiento industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/snap-on.svg" alt="Snap-on" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Snap-on</p>
+                        <p class="marca-card__desc">Herramientas profesionales para mantenimiento, reparación y diagnóstico industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/wiha.svg" alt="Wiha" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Wiha</p>
+                        <p class="marca-card__desc">Herramientas manuales de precisión para aplicaciones eléctricas, electrónicas e industriales.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/chicago-pneumatic.png" alt="Chicago Pneumatic" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Chicago Pneumatic</p>
+                        <p class="marca-card__desc">Herramientas neumáticas y equipos industriales para mantenimiento y producción.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/intertape.png" alt="Intertape" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Intertape</p>
+                        <p class="marca-card__desc">Soluciones de cintas industriales, empaque y protección para procesos productivos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/lenox.png" alt="Lenox" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Lenox</p>
+                        <p class="marca-card__desc">Sierras industriales diseñadas para procesos de corte con alto rendimiento y precisión.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/heidenhain.svg" alt="Heidenhain" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Heidenhain</p>
+                        <p class="marca-card__desc">Tecnología para medición de posición y automatización en maquinaria industrial y CNC.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/siemens.svg" alt="Siemens" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Siemens</p>
+                        <p class="marca-card__desc">Tecnología para automatización, control industrial y soluciones para procesos productivos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/great-lakes-pumps.png" alt="Great Lakes Pumps" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Great Lakes Pumps</p>
+                        <p class="marca-card__desc">Bombas y soluciones para manejo de fluidos en aplicaciones industriales.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/balluff.svg" alt="Balluff" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Balluff</p>
+                        <p class="marca-card__desc">Sensores y soluciones de automatización para optimizar procesos industriales.</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="marcas-cta-wrap">
+                <a href="#contacto" class="btn-hero-primary">
+                    <i class="fa fa-paper-plane me-2" aria-hidden="true"></i>Solicitar Cotización
+                </a>
             </div>
         </div>
     </section>
