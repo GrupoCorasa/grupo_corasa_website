@@ -697,6 +697,166 @@
             margin: 0;
         }
 
+        /* ===== MARCAS (METROLOGÍA BRAND WALL) ===== */
+        .marcas-section {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .marcas-subtitle {
+            color: #5f6772;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        /* Responsive masonry-style wall of brand cards. Flex-wrap keeps the last
+           (partial) row centered instead of ragged-left; the max-width caps the
+           track at 4 cards across so the 8 brands render as a balanced 4-4 even
+           on very wide (xxl) viewports instead of an orphaned 5-3. */
+        .marcas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.35rem;
+            max-width: 1060px;
+            margin: 3rem auto 3.25rem;
+        }
+        /* Each card is a white tile with a centered logo; hover or keyboard
+           focus reveals a green overlay with the brand name + description. */
+        .marca-card {
+            position: relative;
+            /* grow:0 so cards keep a uniform width — a partial last row stays the
+               same size as full rows (centered) instead of stretching wider. */
+            flex: 0 1 240px;
+            min-height: 230px;
+            margin: 0; /* reset Bootstrap Reboot's figure{margin:0 0 1rem} */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.75rem 1.5rem;
+            background: #fff;
+            border: 1px solid rgba(18,22,28,.08);
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            overflow: hidden;
+            cursor: default;
+            transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s;
+        }
+        .marca-card:hover,
+        .marca-card:focus-within {
+            transform: translateY(-5px);
+            border-color: var(--green);
+            box-shadow: 0 18px 38px rgba(0,0,0,.14);
+        }
+        .marca-card:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+        .marca-card__logo {
+            max-height: 64px;
+            max-width: 155px;
+            width: auto;
+            object-fit: contain;
+            transition: opacity .3s;
+        }
+        .marca-card__overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .4rem;
+            padding: 1.3rem 1.25rem;
+            background: linear-gradient(150deg, var(--green-dk) 0%, var(--dark) 120%);
+            opacity: 0;
+            transform: translateY(10px);
+            /* Descriptions are sized to fit; overflow-y stays scrollable as an
+               invisible safety net (scrollbar hidden) so text is never lost. */
+            overflow-y: auto;
+            scrollbar-width: none;              /* Firefox: hide scrollbar */
+            transition: opacity .3s ease, transform .3s ease;
+        }
+        .marca-card__overlay::-webkit-scrollbar { display: none; } /* WebKit: hide scrollbar */
+        .marca-card:hover .marca-card__overlay,
+        .marca-card:focus-within .marca-card__overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .marca-card:hover .marca-card__logo,
+        .marca-card:focus-within .marca-card__logo { opacity: 0; }
+        .marca-card__name {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: .95rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: #fff;
+        }
+        .marca-card__name::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin-top: .45rem;
+            background: rgba(255,255,255,.6);
+        }
+        .marca-card__desc {
+            margin: 0;
+            font-size: .78rem;
+            line-height: 1.48;
+            color: #fff;
+        }
+        .marcas-cta-wrap { text-align: center; }
+
+        /* Keep a balanced 4-4 at the lg breakpoint (992-1199px): the 960px
+           container is too narrow for 4 of the default 240px cards, so trim the
+           basis to fit 4 across and avoid a 3-3-2 orphan row. */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .marca-card { flex-basis: 215px; min-height: 250px; }
+        }
+        /* Phones: one full-width card per row. */
+        @media (max-width: 575.98px) {
+            .marca-card { flex-basis: 100%; }
+        }
+
+        /* Touch / no-hover devices: there is no hover to trigger the overlay,
+           so show the logo and its description stacked and always visible. */
+        @media (hover: none) {
+            .marca-card {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 1rem;
+                min-height: 0;
+                cursor: default;
+            }
+            .marca-card:hover,
+            .marca-card:focus-within {
+                transform: none;
+                border-color: rgba(18,22,28,.08);
+                box-shadow: 0 8px 22px rgba(0,0,0,.05);
+            }
+            .marca-card__logo { opacity: 1 !important; }
+            .marca-card__overlay {
+                position: static;
+                opacity: 1;
+                transform: none;
+                overflow: visible;
+                padding: 0;
+                background: none;
+                text-align: center;
+                align-items: center;
+            }
+            .marca-card__name { color: var(--dark); }
+            .marca-card__name::after { margin: .55rem auto 0; background: var(--green); }
+            .marca-card__desc { color: #5f6772; }
+        }
+
+        /* Honour reduced-motion: no lift / fade transitions. */
+        @media (prefers-reduced-motion: reduce) {
+            .marca-card,
+            .marca-card__logo,
+            .marca-card__overlay { transition: none; }
+            .marca-card:hover,
+            .marca-card:focus-within { transform: none; }
+            .marca-card__overlay { transform: none; }
+        }
+
         /* Benefits section (single column on light bg) */
         .benefits-section {
             padding: 6rem 0;
@@ -1032,6 +1192,7 @@
                     <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#problema">Diagnóstico</a></li>
                     <li class="nav-item"><a class="nav-link" href="#equipos">Equipos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#por-que">¿Por Qué Shively?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#proceso">Proceso</a></li>
@@ -1156,6 +1317,94 @@
                         <p>Medición confiable para procesos industriales de alta exigencia, con trazabilidad y respaldo técnico para cumplir tolerancias y especificaciones críticas.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARCAS (METROLOGÍA) ===== -->
+    <section class="marcas-section" id="marcas" aria-labelledby="marcas-title">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-label">Marcas Aliadas</p>
+                <h2 class="section-title" id="marcas-title">¿Buscas una marca en particular?</h2>
+                <div class="title-bar center"></div>
+                <p class="marcas-subtitle">
+                    En Shively Bros te ayudamos a encontrar la solución de medición adecuada para tu aplicación, trabajando con fabricantes reconocidos por la industria.
+                </p>
+            </div>
+
+            <!-- Hover (or keyboard-focus) a card to reveal the brand's description.
+                 On touch devices the description is shown beneath each logo. -->
+            <div class="marcas-grid">
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/mitutoyo.svg" alt="Mitutoyo" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Mitutoyo</p>
+                        <p class="marca-card__desc">Instrumentos de medición y control dimensional para procesos industriales.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/mahr.svg" alt="Mahr Federal" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Mahr Federal</p>
+                        <p class="marca-card__desc">Soluciones de metrología para inspección y aseguramiento de calidad.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/vermont-gage.svg" alt="Vermont Gage" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Vermont Gage</p>
+                        <p class="marca-card__desc">Calibradores de precisión para verificación dimensional industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/starrett.svg" alt="Starrett" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Starrett</p>
+                        <p class="marca-card__desc">Instrumentos de medición para manufactura, producción e inspección.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/renishaw.png" alt="Renishaw" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Renishaw</p>
+                        <p class="marca-card__desc">Tecnología para medición de alta precisión y automatización industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/vgage.png" alt="Vgage" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Vgage</p>
+                        <p class="marca-card__desc">Soluciones para inspección y control dimensional en manufactura.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/fluke.svg" alt="Fluke" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Fluke</p>
+                        <p class="marca-card__desc">Equipos para medición, diagnóstico y mantenimiento industrial.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="marca-card" tabindex="0">
+                    <img class="marca-card__logo" src="../image/brands/tohnichi.png" alt="Tohnichi" loading="lazy" decoding="async">
+                    <figcaption class="marca-card__overlay">
+                        <p class="marca-card__name" aria-hidden="true">Tohnichi</p>
+                        <p class="marca-card__desc">Herramientas de torque de precisión para procesos industriales.</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="marcas-cta-wrap">
+                <a href="#contacto" class="btn-hero-primary">
+                    <i class="fa fa-paper-plane me-2" aria-hidden="true"></i>Consultar disponibilidad
+                </a>
             </div>
         </div>
     </section>
