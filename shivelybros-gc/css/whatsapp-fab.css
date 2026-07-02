@@ -1,0 +1,204 @@
+/* =========================================================================
+   Floating WhatsApp button (FAB) + greeting bubble
+   Shared across all Shively Bros pages. Self-contained; no dependencies.
+   Core button works with zero JS. Bubble/tracking are progressive
+   enhancements added by js/whatsapp-fab.js.
+   ========================================================================= */
+
+.wa-widget {
+    --wa-green:      #25d366;  /* WhatsApp brand green — kept for instant recognition */
+    --wa-green-dk:   #1da851;  /* button hover face */
+    --wa-green-text: #157a3b;  /* AA-readable green on white (>=4.5:1) — for text */
+    --wa-ink:        #1f2733;
+
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1035;            /* above fixed navbar (1000); below Bootstrap modals (1050+) */
+    /* graceful entrance */
+    animation: wa-fab-in .5s .35s cubic-bezier(.16,1,.3,1) both;
+}
+
+/* ===== Button ===== */
+.wa-fab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--wa-green);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.wa-fab:hover,
+.wa-fab:focus-visible {
+    color: #fff;
+    background: var(--wa-green-dk);
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .32);
+}
+.wa-fab:active { transform: scale(1.02); }
+.wa-fab:focus-visible {
+    outline: 2px solid transparent;   /* becomes a real outline in forced-colors / high-contrast mode */
+    outline-offset: 3px;
+    /* white + dark rings so the focus ring is visible on ANY backdrop (light section or dark hero/footer) */
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--wa-ink), 0 8px 24px rgba(0, 0, 0, .35);
+}
+.wa-fab__icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+    pointer-events: none;
+}
+
+/* "Available" status dot */
+.wa-fab__dot {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #4ade80;
+    border: 2px solid #fff;
+    animation: wa-fab-dot 2.4s ease-in-out infinite;
+}
+
+/* ===== Pulse rings (two staggered sonar ripples behind the button) ===== */
+.wa-fab::before,
+.wa-fab::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--wa-green);
+    z-index: -1;                       /* sits behind the opaque button face */
+    pointer-events: none;              /* decorative — must never intercept clicks/taps */
+    animation: wa-fab-ripple 2.4s ease-out infinite;
+}
+.wa-fab::after { animation-delay: 1.2s; }
+/* Calm the pulse while the user is interacting */
+.wa-fab:hover::before,
+.wa-fab:hover::after,
+.wa-fab:focus-visible::before,
+.wa-fab:focus-visible::after { animation-play-state: paused; }
+
+/* ===== Greeting bubble (injected by JS) ===== */
+.wa-widget__bubble {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 16px);
+    width: max-content;
+    max-width: 250px;
+    padding: 13px 15px;
+    background: #fff;
+    color: var(--wa-ink);
+    border-radius: 14px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, .18);
+    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.42;
+    text-align: left;
+    /* hidden until JS adds .is-visible */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(.96);
+    transform-origin: bottom right;
+    pointer-events: none;
+    transition: opacity .28s ease, transform .28s cubic-bezier(.16,1,.3,1), visibility 0s .28s;
+}
+.wa-widget__bubble.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity .28s ease, transform .28s cubic-bezier(.16,1,.3,1);
+}
+/* little tail pointing down to the button */
+.wa-widget__bubble::after {
+    content: "";
+    position: absolute;
+    right: 24px;
+    bottom: -6px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, .05);
+}
+.wa-widget__bubble-link { display: block; color: inherit; }
+.wa-widget__bubble-link:hover { color: inherit; }
+.wa-widget__bubble-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: var(--wa-green-text);   /* AA contrast on white */
+}
+.wa-widget__bubble-text { display: block; color: #46505c; }
+
+.wa-widget__close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 26px;                 /* >= WCAG 2.2 (2.5.8) 24px minimum touch target */
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--wa-ink);
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    transition: background-color .15s ease, transform .15s ease;
+}
+.wa-widget__close:hover { background: #000; transform: scale(1.1); }
+.wa-widget__close:focus-visible { outline: 2px solid var(--wa-green); outline-offset: 2px; }
+
+/* ===== Keep Google reCAPTCHA v3 badge clear of the button ===== */
+.grecaptcha-badge { bottom: 96px !important; }
+
+/* ===== Keyframes ===== */
+@keyframes wa-fab-in {
+    from { opacity: 0; transform: translateY(18px) scale(.8); }
+    to   { opacity: 1; transform: none; }
+}
+@keyframes wa-fab-ripple {
+    0%   { transform: scale(1);   opacity: .5; }
+    100% { transform: scale(2.1); opacity: 0; }
+}
+@keyframes wa-fab-dot {
+    0%, 100% { transform: scale(1);   opacity: 1;   }
+    50%      { transform: scale(.78); opacity: .65; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 576px) {
+    .wa-widget { right: 16px; bottom: 16px; }
+    .wa-fab { width: 56px; height: 56px; }
+    .wa-fab__icon { width: 29px; height: 29px; }
+    .wa-widget__bubble { max-width: 218px; font-size: 13.5px; }
+    .grecaptcha-badge { bottom: 88px !important; }
+}
+
+/* ===== Accessibility: honour reduced-motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    .wa-widget { animation: none; }
+    .wa-fab { transition: background-color .2s ease; }
+    .wa-fab:hover, .wa-fab:focus-visible { transform: none; }
+    .wa-fab::before, .wa-fab::after { animation: none; opacity: 0; }
+    .wa-fab__dot { animation: none; }
+    .wa-widget__bubble { transition: opacity .2s ease, visibility 0s .2s; transform: none; }
+    .wa-widget__bubble.is-visible { transition: opacity .2s ease; }
+}
+
+/* Don't print the floating button */
+@media print { .wa-widget { display: none !important; } }
