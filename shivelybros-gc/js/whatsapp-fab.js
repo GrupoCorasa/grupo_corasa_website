@@ -76,6 +76,24 @@
         } catch (e) { /* ignore */ }
     }
 
+    /* Upgrade any inline WhatsApp CTA link (e.g. the Marcas-section button).
+       The link already works from its baked static href; this just keeps the
+       phone number DRY (from data-wa-phone) and adds click tracking. A per-CTA
+       `data-wa-message` wins over the generic section message. */
+    function enhanceCtas(phone, section) {
+        var ctas = document.querySelectorAll('[data-wa-cta]');
+        for (var i = 0; i < ctas.length; i++) {
+            (function (cta) {
+                var custom = cta.getAttribute('data-wa-message');
+                var msg = (custom && custom.trim()) ? custom : buildMessage(section);
+                cta.setAttribute('href', buildWaUrl(phone, msg));
+                if (!cta.getAttribute('target')) { cta.setAttribute('target', '_blank'); }
+                if (!cta.getAttribute('rel'))    { cta.setAttribute('rel', 'noopener'); }
+                cta.addEventListener('click', function () { pushEvent(section, 'marcas_cta'); });
+            })(ctas[i]);
+        }
+    }
+
     function bubbleSuppressed() {
         var raw = safeGet(DISMISS_STORAGE);
         if (!raw) { return false; }
@@ -102,6 +120,10 @@
 
         /* 3) Track clicks on the button. */
         fab.addEventListener('click', function () { pushEvent(section, 'fab'); });
+
+        /* 3b) Enhance inline WhatsApp CTAs (e.g. the Marcas-section button).
+               Placed before the bubble's early-return so it always runs. */
+        enhanceCtas(phone, section);
 
         /* 2) Greeting bubble. */
         if (bubbleSuppressed()) { return; }
