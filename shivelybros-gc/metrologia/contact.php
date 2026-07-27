@@ -46,6 +46,20 @@ if (!is_readable($configPath)) {
 }
 $cfg = require $configPath;
 
+// MAIL_TO / MAIL_CC each accept a string or an array. Resolved before the
+// reCAPTCHA round-trip so a misconfigured recipient list fails fast.
+require_once __DIR__ . '/../contact/lib/recipients.php';
+
+$mailTo = normalizeRecipients($cfg['MAIL_TO'] ?? []);
+$mailCc = normalizeRecipients($cfg['MAIL_CC'] ?? [], $mailTo);
+
+if ($mailTo === []) {
+    error_log('[shively-contact:metrologia] MAIL_TO resolved to zero valid recipients');
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => 'Configuración del servidor incompleta.']);
+    exit;
+}
+
 if (!empty($_POST['website'] ?? '')) {
     echo json_encode(['ok' => true]);
     exit;
@@ -116,7 +130,12 @@ try {
     $mail->Timeout = 15;
 
     $mail->setFrom($cfg['SMTP_FROM'], $cfg['SMTP_FROM_NAME']);
-    $mail->addAddress($cfg['MAIL_TO']);
+    foreach ($mailTo as $addr) {
+        $mail->addAddress($addr);
+    }
+    foreach ($mailCc as $addr) {
+        $mail->addCC($addr);
+    }
     $mail->addReplyTo($email, $nombre);
 
     $mail->Subject = sprintf('[Sitio web · Metrología] Nuevo contacto — %s — %s', $empresa, $servicio);
