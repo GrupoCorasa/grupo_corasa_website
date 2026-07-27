@@ -20,7 +20,11 @@ return [
     'SMTP_FROM'      => 'noreply@grupocorasa.mx',
     'SMTP_FROM_NAME' => 'Sitio Web Shively Bros',
 
+    // MAIL_TO / MAIL_CC each accept a single address string or an array of
+    // addresses. Invalid entries are logged and skipped; an address present in
+    // both lists is sent To only. MAIL_TO must resolve to at least one address.
     'MAIL_TO'        => 'infoshivelybros@grupocorasa.mx',
+    'MAIL_CC'        => ['info@corasaindustrial.com'],
 
     'SMTP_DEBUG'     => 0,
 ];
