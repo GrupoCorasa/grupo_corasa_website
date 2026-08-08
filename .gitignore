@@ -2,6 +2,10 @@
 # config.example.php IS committed and shows the required shape.
 shivelybros-gc/contact/config.php
 
+# Lead journal and rate-limit buckets, written at runtime.
+# Contains customer contact details — must never reach the repo.
+shivelybros-gc/contact/storage/
+
 # OS / editor
 .DS_Store
 Thumbs.db
